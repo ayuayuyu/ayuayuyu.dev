@@ -1,0 +1,67 @@
+.container {
+  margin-top: 10%;
+  padding-left: 15%;
+  padding-right: 15%;
+  word-wrap: break-word;
+  container-type: inline-size;
+
+  .title {
+    padding: 0;
+    margin: 0 0 0 0%;
+    text-align: center;
+    font-weight: bolder;
+    padding-bottom: 5%;
+    font-size: 64px;
+    color: rgb(9, 123, 223);
+    @container (max-width: 400px) {
+      font-size: 40px;
+    }
+  }
+  .profile {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 50px;
+
+    .info {
+      order: 0;
+      @container (max-width: 400px) {
+        order: 1;
+      }
+      .name {
+        font-size: 32px;
+        margin-block: 0px;
+        @container (max-width: 400px) {
+          font-size: 26px;
+          text-align: center;
+          padding-bottom: 20px;
+        }
+      }
+      .sentence {
+        @container (max-width: 400px) {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .selfie {
+      width: 100%;
+      height: auto;
+      img {
+        width: 100%;
+        height: auto;
+      }
+      @container (max-width: 400px) {
+        width: 100%;
+        height: auto;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+  .icons {
+    padding-top: 9%;
+    text-align: center;
+  }
+}

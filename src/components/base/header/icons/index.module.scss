@@ -1,0 +1,20 @@
+// .X {
+//   padding-left: 6%;
+// }
+// .Instagram {
+//   padding-left: 6%;
+// }
+// .Gmail {
+//   padding-left: 6%;
+// }
+// .Discord {
+//   padding-left: 6%;
+// }
+// .Qiita {
+//   padding-left: 6%;
+// }
+.container {
+  @container (max-width: 500px) {
+    size: 35px;
+  }
+}

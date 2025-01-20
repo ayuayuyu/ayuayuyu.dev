@@ -1,0 +1,45 @@
+.container {
+  word-wrap: break-word;
+  container-type: inline-size;
+}
+
+.background {
+  width: 100%;
+  height: 70vw;
+  background-size: cover;
+  @container (max-width: 500px) {
+    width: 100%;
+    height: 90vh;
+  }
+}
+
+.name {
+  font-size: 130px;
+  font-weight: bold;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7),
+    -1px -1px 2px rgba(255, 255, 255, 0.7);
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", "Noto Sans", Meiryo, sans-serif;
+  color: #fff;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @container (max-width: 550px) {
+    font-size: 4rem;
+    top: 50%;
+  }
+}
+
+.thoughts {
+  font-size: 5rem;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", "Noto Sans", Meiryo, sans-serif;
+  color: #fff;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
