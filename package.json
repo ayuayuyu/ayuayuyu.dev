@@ -18,6 +18,7 @@
     "simple-icons": "^14.3.0"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.7",
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
