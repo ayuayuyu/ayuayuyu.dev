@@ -22,10 +22,13 @@ export const MenuList: React.FC = () => {
       </button>
       {isOpen && (
         <nav className={styles.navMenu}>
+          <Link href="/" className={styles.navLink}>
+            top
+          </Link>
           <Link href="/about" className={styles.navLink}>
             About
           </Link>
-          <Link href="/post" className={styles.navLink}>
+          <Link href="/posts" className={styles.navLink}>
             Posts
           </Link>
         </nav>
