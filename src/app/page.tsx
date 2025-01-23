@@ -6,6 +6,7 @@ import AboutMe from "@/section/about";
 import Skills from "@/section/skill";
 import Historys from "@/section/historys ";
 import Products from "@/section/producut";
+import Contact from "@/section/contact";
 import Footer from "@/components/base/footer";
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Skills />
       <Historys />
       <Products />
+      <Contact />
       <Footer />
     </div>
   );

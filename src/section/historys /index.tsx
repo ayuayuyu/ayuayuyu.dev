@@ -1,4 +1,4 @@
-import { HistorysInfo } from "@/constans/historysInfo";
+import HistorysInfo from "@/constans/historysInfo";
 import History from "./history";
 import styles from "./index.module.scss";
 

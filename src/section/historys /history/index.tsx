@@ -21,13 +21,13 @@ const History = ({
 }: HistorysProps) => {
   return (
     <>
-      <div className={styles.container} data-even={isEven}>
+      <div className={styles.subContainer} data-even={isEven}>
         <div className={styles.history}>
           <div className={styles.point}></div>
           <div className={styles.line}></div>
         </div>
         <div className={styles.historyItem}>
-          <div className={styles.title}>{title}</div>
+          <div className={styles.subTitle}>{title}</div>
           <Link href={link || "No link"} className={styles.navLink}>
             {organization}
           </Link>

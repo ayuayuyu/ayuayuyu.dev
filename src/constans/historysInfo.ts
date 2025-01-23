@@ -1,4 +1,4 @@
-export const HistorysInfo = [
+const HistorysInfo = [
   {
     id: 1,
     title: "誕生",
@@ -54,3 +54,5 @@ export const HistorysInfo = [
     endDate: "現在",
   },
 ];
+
+export default HistorysInfo;
