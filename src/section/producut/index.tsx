@@ -7,9 +7,9 @@ const Products = () => {
     <div className={styles.container}>
       <div className={styles.title}>Products</div>
       <div className={styles.products}>
-        {ProductsInfo.map((product, index) => (
+        {ProductsInfo.map((product) => (
           <ProductCard
-            key={index}
+            key={product.id}
             title={product.title}
             description={product.description}
             imageUrl={product.imageUrl}

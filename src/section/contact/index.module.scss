@@ -2,13 +2,11 @@
   margin-top: 10%;
   padding-left: 15%;
   padding-right: 15%;
+  text-align: center;
   word-wrap: break-word;
   container-type: inline-size;
 
   .title {
-    padding: 0;
-    margin: 0 0 0 0%;
-    text-align: center;
     font-weight: bolder;
     font-size: 64px;
     color: rgb(9, 123, 223);
@@ -17,9 +15,6 @@
     }
   }
   .description {
-    padding: 0;
-    margin: 0 0 0 0%;
-    text-align: center;
     font-weight: bolder;
     font-size: 32px;
     @container (max-width: 400px) {
@@ -27,13 +22,24 @@
     }
   }
   .gmail {
-    padding: 5%;
     margin: 0 0 0 0%;
-    text-align: center;
     font-weight: bolder;
+    text-decoration: none;
+    color: rgb(9, 123, 223);
     font-size: 32px;
     @container (max-width: 400px) {
       font-size: 20px;
+    }
+  }
+  .card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    text-align: center;
+    place-content: center;
+    place-items: center;
+    gap: 15px;
+    @container (max-width: 400px) {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
   }
 }

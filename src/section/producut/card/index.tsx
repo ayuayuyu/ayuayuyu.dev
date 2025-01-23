@@ -19,8 +19,8 @@ const ProductCard = ({
   gitUrl,
 }: ProductCardProps) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>{title}</div>
+    <div className={styles.subContainer}>
+      <div className={styles.subTitle}>{title}</div>
       <div className={styles.card}>
         <div className={styles.image}>
           {/* <Image src={imageUrl} alt={title} width={125} height={125} /> */}

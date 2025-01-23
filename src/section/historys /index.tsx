@@ -7,10 +7,10 @@ const Historys = () => {
     <div className={styles.container}>
       <div className={styles.title}>History</div>
       <div className={styles.historys}>
-        {HistorysInfo.map((history, i) => (
+        {HistorysInfo.map((history) => (
           <div key={history.id} className={styles.historyItem}>
             <History
-              isEven={i % 2 == 0}
+              isEven={history.id % 2 == 0}
               title={history.title}
               organization={history.organization}
               link={history.link}
