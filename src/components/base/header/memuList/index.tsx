@@ -23,7 +23,7 @@ export const MenuList: React.FC = () => {
       {isOpen && (
         <nav className={styles.navMenu}>
           <Link href="/" className={styles.navLink}>
-            top
+            Home
           </Link>
           <Link href="/about" className={styles.navLink}>
             About
