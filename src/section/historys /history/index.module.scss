@@ -83,6 +83,10 @@
         padding-top: 5px;
       }
     }
+    .navLink {
+      text-decoration: none;
+      color: rgb(9, 123, 223);
+    }
     .description {
       padding-top: 10px;
       @container (max-width: 400px) {
