@@ -5,30 +5,11 @@
   justify-content: center;
   align-items: center;
   container-type: inline-size;
-  // &[data-even="true"] {
-  //   .history {
-  //     order: 1;
-  //   }
-  //   .historyItem {
-  //     order: 2;
-  //   }
-  //   padding-left: 35%;
-  // }
-  // &[data-even="false"] {
-  //   .history {
-  //     order: 2;
-  //   }
-  //   .historyItem {
-  //     order: 1;
-  //   }
-  //   padding-right: 35%;
-  // }
   .history {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    // padding-left: 450px;
     .point {
       width: 30px;
       height: 30px;
@@ -44,7 +25,6 @@
       height: 250px;
       width: 5px;
       background-color: rgb(34, 62, 166);
-      // background-color: rgb(255, 255, 255);
       position: absolute;
       bottom: -250px;
       @container (max-width: 400px) {

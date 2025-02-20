@@ -1,10 +1,10 @@
-import styles from "./index.module.scss";
-import Image from "next/image";
+import styles from './index.module.scss';
+import Image from 'next/image';
 // import { Icon } from "@iconify/react/dist/iconify.js";
-import { Icons } from "./icons";
-import { MenuList } from "./memuList";
-import MYNAME from "@/constans/myname";
-import iconImg from "../../../../public/default/icon.webp";
+import { Icons } from './icons';
+import { MenuList } from './memuList';
+import MYNAME from '@/constans/myname';
+import iconImg from '../../../../public/default/icon.webp';
 const Header = () => {
   return (
     <header className={styles.header}>
