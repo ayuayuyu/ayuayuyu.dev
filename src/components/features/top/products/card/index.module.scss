@@ -1,0 +1,60 @@
+.card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1.5px solid #333;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  &[data-even='true'] {
+    .image {
+      order: 1;
+    }
+    .info {
+      padding-left: 10%;
+      order: 2;
+    }
+  }
+  &[data-even='false'] {
+    .image {
+      order: 2;
+    }
+    .info {
+      padding-right: 10%;
+      order: 1;
+    }
+  }
+
+  .image {
+    width: 450px;
+    height: 300px;
+    border: saddlebrown 1px solid;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .info {
+    display: flex;
+    width: 450px;
+    height: 300px;
+    flex-direction: column;
+    align-items: center; // 水平中央揃え
+
+    .title {
+      padding-top: 20px;
+      font-size: 32px;
+    }
+    .description {
+      padding-top: 25px;
+      font-size: 16px;
+    }
+    .link {
+      padding-top: 35px;
+      font-size: 16px;
+      color: #7d7d7d;
+      text-decoration: none;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.container {
+  word-wrap: break-word;
+  container-type: inline-size;
+  padding-left: 9%;
+  padding-right: 9%;
+
+  .profile {
+    display: grid;
+    place-content: center;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    .info {
+      order: 0;
+      @container (max-width: 400px) {
+        order: 1;
+      }
+      .name {
+        font-size: 32px;
+        margin-block: 0px;
+        @container (max-width: 400px) {
+          font-size: 26px;
+          text-align: center;
+          padding-bottom: 20px;
+        }
+      }
+    }
+
+    .selfie {
+      text-align: right;
+      width: 100%;
+      img {
+        width: 350px;
+        height: auto;
+      }
+      @container (max-width: 400px) {
+        width: 100%;
+        height: auto;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}

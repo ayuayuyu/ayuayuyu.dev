@@ -1,0 +1,50 @@
+.awardCard {
+  gap: 20px;
+  display: flex;
+  .awardInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    .award {
+      &::before {
+        content: '[';
+        width: 3px;
+        height: 3px;
+        font-weight: 500;
+      }
+
+      &::after {
+        content: ']';
+        width: 3px;
+        height: 3px;
+        font-weight: 500;
+      }
+      font-size: 32px;
+      font-weight: 500;
+    }
+    .date {
+      font-size: 16px;
+    }
+  }
+  .subAwardInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .hackathonName {
+      font-size: 32px;
+      font-weight: 500;
+    }
+    .title {
+      font-size: 24px;
+    }
+  }
+  .link {
+    padding-top: 5px;
+  }
+  border-bottom: 1.5px solid #333;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
