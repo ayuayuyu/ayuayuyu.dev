@@ -2,11 +2,13 @@
   width: 310px;
   height: 305px;
   border: 1px solid #333;
+  // background-color: #fffaf0;
+  // background-color: #bae4ea;
+  background-color: #c2e9ee;
   padding-top: 3px;
   display: flex;
   justify-content: center;
   .image {
-    padding-top: 5px;
     width: 300px;
     height: 200px;
     border: 0.5px solid #333;
@@ -31,5 +33,9 @@
       font-size: 24px;
       font-weight: 500;
     }
+  }
+  transition: transform 0.3s;
+  &:hover {
+    transform: scale(1.02);
   }
 }
