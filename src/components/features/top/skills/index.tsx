@@ -1,9 +1,9 @@
 import { Icon } from '@iconify/react';
 import styles from './index.module.scss';
 import Title from '@/components/title';
-import MAINSKILLS from '@/constants/mainskill';
+import { MAINSKILLS } from '@/constants/mainskill';
 
-const Skills = () => {
+const MainSkills = () => {
   return (
     <div>
       <Title>Skills</Title>
@@ -18,4 +18,4 @@ const Skills = () => {
     </div>
   );
 };
-export default Skills;
+export default MainSkills;

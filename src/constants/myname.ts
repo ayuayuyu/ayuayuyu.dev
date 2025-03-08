@@ -1,3 +1,3 @@
-const MYNAME: string = 'ayuayuyu';
+const MYNAME: string = 'Ayuayuyu';
 
 export default MYNAME;

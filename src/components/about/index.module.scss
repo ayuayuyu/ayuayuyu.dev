@@ -1,0 +1,66 @@
+.profile {
+  display: grid;
+  place-content: center;
+  place-items: center;
+  padding: 35px 0;
+  width: 100%;
+  height: auto;
+  border: 1px solid #333;
+  grid-template-columns: minmax(300px, 550px) minmax(300px, 350px);
+
+  grid-auto-flow: dense;
+
+  gap: 30px;
+  @container (max-width: 800px) {
+    grid-template-columns: repeat(auto-fit, 300px);
+    padding: 5px 0;
+    gap: 20px;
+  }
+  .info {
+    order: 0;
+    @container (max-width: 800px) {
+      order: 1;
+    }
+    .name {
+      font-size: 32px;
+      border-bottom: 1px solid #333;
+      @container (max-width: 800px) {
+        font-size: 26px;
+        text-align: center;
+      }
+    }
+    .tag {
+      margin-top: 10px;
+      gap: 15px;
+      display: flex;
+      @container (max-width: 800px) {
+        justify-content: center;
+      }
+    }
+    .detail {
+      margin-top: 15px;
+    }
+    .detailLink {
+      margin-top: 25px;
+      @container (max-width: 800px) {
+        text-align: center;
+      }
+    }
+  }
+
+  .selfie {
+    text-align: right;
+    width: 100%;
+    img {
+      width: 350px;
+      height: auto;
+    }
+    @container (max-width: 800px) {
+      height: auto;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

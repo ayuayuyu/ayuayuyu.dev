@@ -1,0 +1,21 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 100px);
+  text-align: center;
+  place-items: center;
+  gap: 35px;
+  padding: 25px;
+  background-color: rgba(223, 223, 223, 0.5);
+  @container (max-width: 400px) {
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .iconContainer {
+    width: 100px;
+    height: 80px;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}

@@ -1,6 +1,6 @@
 import TopLayout from './layout';
-import AboutMe from './about';
-import Skills from './skills';
+import AboutMeTop from './about';
+import MainSkills from './skills';
 import Products from './products';
 import Awards from './awards';
 import Project from './projects';
@@ -8,8 +8,8 @@ import Project from './projects';
 const Top = () => {
   return (
     <TopLayout>
-      <AboutMe />
-      <Skills />
+      <AboutMeTop />
+      <MainSkills />
       <Products />
       <Awards />
       <Project />
