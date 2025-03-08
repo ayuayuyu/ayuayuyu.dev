@@ -1,55 +1,101 @@
 .card {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 450px);
+  place-content: center;
+  place-items: center;
+  gap: 10%;
   border-bottom: 1.5px solid #333;
-  padding-top: 35px;
-  padding-bottom: 35px;
-  &[data-even='true'] {
-    .image {
-      order: 1;
-    }
-    .info {
-      padding-left: 10%;
-      order: 2;
+  padding: 35px 0;
+
+  &[data-even='true'] .image {
+    order: 1;
+  }
+  &[data-even='true'] .info {
+    order: 2;
+  }
+  &[data-even='false'] .image {
+    order: 2;
+  }
+  &[data-even='false'] .info {
+    order: 1;
+  }
+
+  @container (max-width: 1190px) {
+    grid-template-columns: repeat(auto-fit, 400px);
+  }
+  @container (max-width: 890px) {
+    grid-template-columns: repeat(auto-fit, 450px);
+    gap: 20px;
+
+    &[data-even='false'],
+    &[data-even='true'] {
+      .image,
+      .info {
+        order: initial;
+      }
     }
   }
-  &[data-even='false'] {
-    .image {
-      order: 2;
-    }
-    .info {
-      padding-right: 10%;
-      order: 1;
-    }
+
+  @container (max-width: 550px) {
+    gap: 0; // 要素が消えたときの余白をなくす
   }
 
   .image {
     width: 450px;
     height: 300px;
-    border: saddlebrown 1px solid;
+    border: 1px solid saddlebrown;
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
+    @container (max-width: 1190px) {
+      width: 400px;
+      height: 250px;
+    }
+    @container (max-width: 550px) {
+      width: 300px;
+      height: 200px;
+    }
   }
+
   .info {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 450px;
     height: 300px;
-    flex-direction: column;
-    align-items: center; // 水平中央揃え
+
+    @container (max-width: 1190px) {
+      width: 400px;
+    }
+    @container (max-width: 550px) {
+      width: 300px;
+    }
 
     .title {
       padding-top: 20px;
       font-size: 32px;
+
+      @container (max-width: 890px) {
+        padding-top: 0;
+      }
     }
+
     .description {
       padding-top: 25px;
       font-size: 16px;
+
+      @container (max-width: 550px) {
+        display: none;
+        padding-top: 0; // 余白も削除
+      }
     }
+
     .link {
       padding-top: 35px;
       font-size: 16px;

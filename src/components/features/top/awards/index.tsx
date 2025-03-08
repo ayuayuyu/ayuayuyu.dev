@@ -8,16 +8,18 @@ const Awards = () => {
     <div>
       <Title>Awards</Title>
       <div className={styles.container}>
-        {AWARDS.map((award) => (
-          <AwardCard
-            key={award.id}
-            award={award.award}
-            hackathonName={award.hackathonName}
-            title={award.title}
-            link={award.link}
-            date={award.date}
-          />
-        ))}
+        <div className={styles.subcontainer}>
+          {AWARDS.map((award) => (
+            <AwardCard
+              key={award.id}
+              award={award.award}
+              hackathonName={award.hackathonName}
+              title={award.title}
+              link={award.link}
+              date={award.date}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

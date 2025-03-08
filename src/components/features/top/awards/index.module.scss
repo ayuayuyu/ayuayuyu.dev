@@ -1,5 +1,7 @@
 .container {
-  width: 500px;
-  height: auto;
-  margin: auto;
+  text-align: center;
+  .subcontainer {
+    display: inline-block;
+    height: auto;
+  }
 }

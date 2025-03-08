@@ -1,12 +1,20 @@
 .awardCard {
   gap: 20px;
   display: flex;
+  border-bottom: 1.5px solid #333;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  @container (max-width: 550px) {
+    gap: 10px;
+  }
+  @container (max-width: 420px) {
+    gap: 5px;
+  }
   .awardInfo {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
     .award {
       &::before {
         content: '[';
@@ -23,28 +31,48 @@
       }
       font-size: 32px;
       font-weight: 500;
+      @container (max-width: 550px) {
+        font-size: 24px;
+      }
+      @container (max-width: 420px) {
+        font-size: 20px;
+      }
     }
     .date {
       font-size: 16px;
+      @container (max-width: 550px) {
+        font-size: 12px;
+      }
     }
   }
   .subAwardInfo {
     display: flex;
     flex-direction: column;
-    // align-items: center;
-    // justify-content: center;
+    align-items: flex-start;
     .hackathonName {
       font-size: 32px;
       font-weight: 500;
+      @container (max-width: 550px) {
+        font-size: 24px;
+      }
+      @container (max-width: 420px) {
+        font-size: 20px;
+      }
     }
     .title {
       font-size: 24px;
+      @container (max-width: 550px) {
+        font-size: 16px;
+      }
+      @container (max-width: 420px) {
+        font-size: 14px;
+      }
     }
   }
   .link {
     padding-top: 5px;
+    @container (max-width: 400px) {
+      padding-top: 0px;
+    }
   }
-  border-bottom: 1.5px solid #333;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
