@@ -1,12 +1,12 @@
 import PROJECTS from '@/constants/projects';
-import Title from '@/components/title';
-import styles from './index.module.scss';
+import TitleLayout from '@/components/title';
 import ProjectCard from './projectCard';
+import styles from './index.module.scss';
 
 const Project = () => {
   return (
     <div>
-      <Title>Projects</Title>
+      <TitleLayout>Projects</TitleLayout>
       <div className={styles.container}>
         {PROJECTS.map((project) => (
           <ProjectCard

@@ -5,7 +5,7 @@ type TagProps = {
   children: React.ReactNode;
 };
 
-const Tag = ({ children }: TagProps) => {
+const TagLayout = ({ children }: TagProps) => {
   return (
     <span className={styles.tag}>
       <Icon icon="material-symbols:tag" width="16" height="16" />
@@ -13,4 +13,4 @@ const Tag = ({ children }: TagProps) => {
     </span>
   );
 };
-export default Tag;
+export default TagLayout;

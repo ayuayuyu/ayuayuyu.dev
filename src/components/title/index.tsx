@@ -4,8 +4,8 @@ type TitleProps = {
   children: React.ReactNode;
 };
 
-const Title = ({ children }: TitleProps) => {
+const TitleLayout = ({ children }: TitleProps) => {
   return <div className={styles.title}>{children}</div>;
 };
 
-export default Title;
+export default TitleLayout;

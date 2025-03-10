@@ -5,7 +5,13 @@
   font-family: 'Poppins', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  background-color: #fafaf5;
+  --background-color: #fafaf5;
+  --color-blue: #097bdf;
+  --color-black: #333;
+  --font-weight-max: 900;
+  --font-weight-semi-bold: 700;
+  --font-weight-medium: 500;
+  background-color: var(--background-color);
   max-width: 1200px;
   margin: auto;
   word-wrap: break-word;

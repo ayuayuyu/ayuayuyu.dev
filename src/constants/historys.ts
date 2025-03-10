@@ -1,0 +1,78 @@
+const HISTORYS = [
+  {
+    id: 0,
+    title: '誕生',
+    organization: '',
+    link: '',
+    description: '愛知県で生まれる',
+    year: 'H16',
+    month: '7',
+  },
+  {
+    id: 1,
+    title: '小学校 入学',
+    organization: '',
+    link: '',
+    description: 'ものづくりに興味を持つ',
+    year: 'H23',
+    month: '4',
+  },
+  {
+    id: 2,
+    title: '中学校 入学',
+    organization: '',
+    link: '',
+    description: 'バレー部に入って運動をしていました。',
+    year: 'H29',
+    month: '4',
+  },
+  {
+    id: 3,
+    title: '名古屋工業高等学校 入学',
+    organization: '名工',
+    link: 'https://nagoya-th.ed.jp/',
+    description: '情報科に入学する',
+    year: 'R2',
+    month: '4',
+  },
+  {
+    id: 4,
+    title: 'パソコン部 入部',
+    organization: '',
+    link: '',
+    description: 'HTMLやCSSの勉強をしていました。',
+    year: 'R2',
+    month: '4',
+  },
+  {
+    id: 5,
+    title: 'イラストレーション部 転部',
+    organization: '',
+    link: '',
+    description:
+      'イラストレーション部に転部\nblenderやUnityなどで3D制作を行なっていました。',
+    year: 'R3',
+    month: '5',
+  },
+  {
+    id: 6,
+    title: '愛知工業大学 入学',
+    organization: 'AIT',
+    link: 'https://www.ait.ac.jp/',
+    description: '情報科学部 情報科学科\nコンピューターシステム専攻に入学',
+    year: 'R5',
+    month: '4',
+  },
+  {
+    id: 7,
+    title: 'システム工学研究会 入部',
+    organization: 'Sysken',
+    link: 'https://www.sysken.net/',
+    description:
+      'ハッカソンや個人開発をして、好きなことをやって日々過ごしています。',
+    year: 'R5',
+    month: '4',
+  },
+];
+
+export default HISTORYS;

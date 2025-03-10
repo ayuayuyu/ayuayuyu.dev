@@ -1,12 +1,14 @@
-import AboutMes from '@/components/about';
+import AboutMeLayout from '@/components/about';
+import TitleLayout from '@/components/title';
 import DisplaySentence from '../../top/about/displaySentence';
 
 const AboutMe = () => {
   return (
     <>
-      <AboutMes isVisible={false}>
+      <TitleLayout>About Me</TitleLayout>
+      <AboutMeLayout tag={'バックエンド'} isVisible={false}>
         <DisplaySentence />
-      </AboutMes>
+      </AboutMeLayout>
     </>
   );
 };

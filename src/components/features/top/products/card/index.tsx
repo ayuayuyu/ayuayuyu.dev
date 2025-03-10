@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Tag from '@/components/tag';
+import TagLayout from '@/components/tag';
 import Link from 'next/link';
 import { StaticImageData } from 'next/image';
 import styles from './index.module.scss';
@@ -26,7 +26,7 @@ const ProductsCard = ({
       </div>
       <div className={styles.info}>
         <p className={styles.title}>{title}</p>
-        <Tag>Web</Tag>
+        <TagLayout>Web</TagLayout>
         <p className={styles.description}>{description}</p>
         <Link href={link || ''} className={styles.link}>
           詳しくみる

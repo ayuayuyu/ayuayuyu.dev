@@ -12,7 +12,7 @@ type SkillProps = {
   skills: SkillItem[];
 };
 
-const Skill = ({ children, skills }: SkillProps) => {
+const SkillLayout = ({ children, skills }: SkillProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>{children}</div>
@@ -28,4 +28,4 @@ const Skill = ({ children, skills }: SkillProps) => {
   );
 };
 
-export default Skill;
+export default SkillLayout;

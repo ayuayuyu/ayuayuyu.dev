@@ -1,16 +1,16 @@
 import { FRONTEND, BACKEND, OTHER } from '@/constants/mainskill';
-import Title from '@/components/title';
-import Skill from '@/components/skill';
+import TitleLayout from '@/components/title';
+import SkillLayout from '@/components/skill';
 import styles from './index.module.scss';
 
 const Skills = () => {
   return (
     <div>
-      <Title>Skills</Title>
+      <TitleLayout>Skills</TitleLayout>
       <div className={styles.container}>
-        <Skill skills={FRONTEND}>Frontend</Skill>
-        <Skill skills={BACKEND}>Backend</Skill>
-        <Skill skills={OTHER}>Other</Skill>
+        <SkillLayout skills={FRONTEND}>Frontend</SkillLayout>
+        <SkillLayout skills={BACKEND}>Backend</SkillLayout>
+        <SkillLayout skills={OTHER}>Other</SkillLayout>
       </div>
     </div>
   );

@@ -1,12 +1,12 @@
 import AWARDS from '@/constants/awards';
-import Title from '@/components/title';
-import styles from './index.module.scss';
+import TitleLayout from '@/components/title';
 import AwardCard from './awardCard';
+import styles from './index.module.scss';
 
 const Awards = () => {
   return (
     <div>
-      <Title>Awards</Title>
+      <TitleLayout>Awards</TitleLayout>
       <div className={styles.container}>
         <div className={styles.subcontainer}>
           {AWARDS.map((award) => (

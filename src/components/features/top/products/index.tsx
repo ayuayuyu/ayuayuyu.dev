@@ -1,4 +1,4 @@
-import Title from '@/components/title';
+import TitleLayout from '@/components/title';
 import ProductsCard from './card';
 import PRODUCTS from '@/constants/products';
 import styles from './index.module.scss';
@@ -6,7 +6,7 @@ import styles from './index.module.scss';
 const Products = () => {
   return (
     <div>
-      <Title>Products</Title>
+      <TitleLayout>Products</TitleLayout>
       <div className={styles.container}>
         {PRODUCTS.map((product) => (
           <ProductsCard

@@ -1,14 +1,14 @@
 import { MAINSKILLS } from '@/constants/mainskill';
-import Title from '@/components/title';
-import Skill from '@/components/skill';
+import TitleLayout from '@/components/title';
+import SkillLayout from '@/components/skill';
 import styles from './index.module.scss';
 
 const MainSkills = () => {
   return (
     <div>
-      <Title>Skills</Title>
+      <TitleLayout>Skills</TitleLayout>
       <div className={styles.container}>
-        <Skill skills={MAINSKILLS}>Main</Skill>
+        <SkillLayout skills={MAINSKILLS}>Main</SkillLayout>
       </div>
     </div>
   );

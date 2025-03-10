@@ -1,4 +1,4 @@
-import Tag from '@/components/tag';
+import TagLayout from '@/components/tag';
 import Link from 'next/link';
 import Image from 'next/image';
 import { StaticImageData } from 'next/image';
@@ -28,7 +28,7 @@ const ProjectCard = ({
         <div className={styles.info}>
           <div className={styles.subInfo}>
             <div className={styles.tag}>
-              <Tag>{tag}</Tag>
+              <TagLayout>{tag}</TagLayout>
             </div>
             <div className={styles.date}>{date}</div>
           </div>
