@@ -2,6 +2,8 @@ import { getAllSlug } from '@/libs/get-all-slug';
 import { getMarkdown } from '@/libs/get-markdown';
 import { markdownToHtml } from '@/libs/markdown-to-html';
 
+export const runtime = 'nodejs'; // Edge ではなく Node.js を使用
+
 export async function generateStaticParams(): Promise<
   { category: string; slug: string }[]
 > {

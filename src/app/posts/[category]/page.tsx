@@ -4,6 +4,8 @@ type PostsProps = {
   params: Promise<{ category: string }>; // params を Promise に
 };
 
+export const runtime = 'nodejs'; // Edge ではなく Node.js を使用
+
 export default async function Home(props: PostsProps) {
   const resolvedParams = await props.params;
   const { category } = resolvedParams;
