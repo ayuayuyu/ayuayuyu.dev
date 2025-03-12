@@ -8,7 +8,7 @@ type CardProps = {
   title: string;
   tag: string;
   date: string;
-  imageUrl: StaticImageData;
+  imageUrl: string | StaticImageData;
   link: string;
 };
 

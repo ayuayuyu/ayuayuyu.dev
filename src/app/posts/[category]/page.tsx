@@ -1,11 +1,16 @@
 import Cards from '@/components/cards';
 
 type PostsProps = {
-  params: { category: string }; // paramsの型定義
+  params: Promise<{ category: string }>; // params を Promise に
 };
-export default function Home({ params }: PostsProps) {
-  if (!params.category) {
+
+export default async function Home(props: PostsProps) {
+  const resolvedParams = await props.params;
+  const { category } = resolvedParams;
+
+  if (!category) {
     return <div>ページが見つかりません</div>;
   }
-  return <Cards category={params.category}>投稿一覧</Cards>;
+
+  return <Cards category={category}>投稿一覧</Cards>;
 }

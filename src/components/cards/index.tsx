@@ -24,13 +24,13 @@ const Cards = async ({ children, category }: CardProps) => {
           slug,
           title: data.title || 'No Title',
           tag: data.tag || '',
-          date: data.date || 'No Date', // date を明示的に指定
+          date: data.date || 'No Date',
           imageUrl: data.thumbnail || '/default/icon.webp',
           category: data.category || '',
         };
       }),
     )
-  ).filter(Boolean);
+  ).filter((card): card is NonNullable<typeof card> => card !== null);
 
   const filteredCards =
     category === 'All'
