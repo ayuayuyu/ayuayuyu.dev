@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { StaticImageData } from 'next/image';
 import styles from './index.module.scss';
 
-type ProjectCardProps = {
+type CardProps = {
   title: string;
   tag: string;
   date: string;
@@ -12,13 +12,7 @@ type ProjectCardProps = {
   link: string;
 };
 
-const ProjectCard = ({
-  title,
-  tag,
-  date,
-  imageUrl,
-  link,
-}: ProjectCardProps) => {
+const Card = ({ title, tag, date, imageUrl, link }: CardProps) => {
   return (
     <div className={styles.card}>
       <Link href={link || ''}>
@@ -44,4 +38,4 @@ const ProjectCard = ({
     </div>
   );
 };
-export default ProjectCard;
+export default Card;

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import iconImg from '../../../public/defalut/icon.webp';
+import iconImg from '../../../public/default/icon.webp';
 import MYNAME from '@/constants/myname';
 import TagLayout from '../tag';
 import Link from 'next/link';

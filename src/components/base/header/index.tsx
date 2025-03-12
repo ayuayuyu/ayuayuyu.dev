@@ -1,6 +1,6 @@
 import styles from './index.module.scss';
 import Image from 'next/image';
-import IconImg from '../../../../public/defalut/icon.webp';
+import IconImg from '../../../../public/default/icon.webp';
 import MYNAME from '@/constants/myname';
 const Header = () => {
   return (
