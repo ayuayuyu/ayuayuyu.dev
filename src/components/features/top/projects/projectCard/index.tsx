@@ -1,6 +1,5 @@
 import TagLayout from '@/components/tag';
 import Link from 'next/link';
-import Image from 'next/image';
 import { StaticImageData } from 'next/image';
 import styles from './index.module.scss';
 
@@ -23,8 +22,8 @@ const ProjectCard = ({
     <div className={styles.card}>
       <Link href={link || ''}>
         <div className={styles.image}>
-          <Image
-            src={imageUrl}
+          <img
+            src={imageUrl.src}
             alt="アイコン"
             width={300}
             height={250}

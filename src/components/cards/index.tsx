@@ -15,7 +15,7 @@ const Cards = async ({ children, category }: CardProps) => {
   const cards = (
     await Promise.all(
       slugs.map(async (slug) => {
-        const markdown = await getMarkdown(`contents/${slug}.md`);
+        const markdown = await getMarkdown(`contents/${slug}.html.md`);
         if (!markdown) {
           return null;
         }
@@ -49,7 +49,7 @@ const Cards = async ({ children, category }: CardProps) => {
               tag={tag}
               date={date}
               imageUrl={imageUrl}
-              link={`posts/${category}/${slug}`} // link を適切に設定
+              link={`/posts/${category}/${slug}`} // link を適切に設定
             />
           ),
         )}

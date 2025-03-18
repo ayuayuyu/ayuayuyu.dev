@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import iconImg from '../../../public/default/icon.webp';
 import MYNAME from '@/constants/myname';
 import TagLayout from '../tag';
@@ -28,7 +27,7 @@ const AboutMeLayout = ({ children, tag, isVisible }: AboutMeProps) => {
           )}
         </div>
         <div className={styles.selfie}>
-          <Image src={iconImg} alt="アイコン" className={styles.icon} />
+          <img src={iconImg.src} alt="アイコン" className={styles.icon} />
         </div>
       </div>
     </div>

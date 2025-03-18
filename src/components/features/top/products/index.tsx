@@ -12,7 +12,7 @@ const Products = () => {
           <ProductsCard
             key={product.id}
             isEven={product.id % 2 === 0}
-            icon={product.icon}
+            icon={product.icon.src}
             title={product.title}
             link={product.link}
             description={product.description}

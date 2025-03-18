@@ -1,12 +1,10 @@
-import Image from 'next/image';
 import TagLayout from '@/components/tag';
 import Link from 'next/link';
-import { StaticImageData } from 'next/image';
 import styles from './index.module.scss';
 
 type ProductCardProps = {
   isEven: boolean;
-  icon: StaticImageData;
+  icon: string;
   title: string;
   link: string;
   description: string;
@@ -22,7 +20,7 @@ const ProductsCard = ({
   return (
     <div className={styles.card} data-even={isEven}>
       <div className={styles.image}>
-        <Image src={icon} alt="アイコン" className={styles.icon} />
+        <img src={icon} alt="アイコン" className={styles.icon} />
       </div>
       <div className={styles.info}>
         <p className={styles.title}>{title}</p>

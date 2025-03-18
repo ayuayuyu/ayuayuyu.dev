@@ -1,14 +1,12 @@
 import TagLayout from '@/components/tag';
 import Link from 'next/link';
-import Image from 'next/image';
-import { StaticImageData } from 'next/image';
 import styles from './index.module.scss';
 
 type CardProps = {
   title: string;
   tag: string;
   date: string;
-  imageUrl: string | StaticImageData;
+  imageUrl: string;
   link: string;
 };
 
@@ -17,7 +15,7 @@ const Card = ({ title, tag, date, imageUrl, link }: CardProps) => {
     <div className={styles.card}>
       <Link href={link || ''}>
         <div className={styles.image}>
-          <Image
+          <img
             src={imageUrl}
             alt="アイコン"
             width={300}
