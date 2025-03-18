@@ -58,6 +58,13 @@ export const getMarkdown = (
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const { data, content } = matter(fileContents);
     data.thumbnail = getThumbnail(content);
+    if (typeof data.tags === 'string') {
+      const tagMatch = data.tags.match(/tag:([^,]+)/);
+      const dateMatch = data.tags.match(/date:([\d.]+)/);
+
+      data.tag = tagMatch ? tagMatch[1].trim() : null;
+      data.date = dateMatch ? dateMatch[1].trim() : null;
+    }
 
     return {
       data: {
