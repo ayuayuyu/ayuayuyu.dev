@@ -15,13 +15,7 @@ const Card = ({ title, tag, date, imageUrl, link }: CardProps) => {
     <div className={styles.card}>
       <Link href={link || ''}>
         <div className={styles.image}>
-          <img
-            src={imageUrl}
-            alt="アイコン"
-            width={300}
-            height={250}
-            className={styles.icon}
-          />
+          <img src={imageUrl} alt="アイコン" className={styles.icon} />
         </div>
         <div className={styles.info}>
           <div className={styles.subInfo}>
