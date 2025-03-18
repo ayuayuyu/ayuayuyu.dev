@@ -1,19 +1,30 @@
 import { getAllSlug } from '@/libs/get-all-slug';
 import { getMarkdown } from '@/libs/get-markdown';
 import { markdownToHtml } from '@/libs/markdown-to-html';
+import styles from './style.module.scss';
 
 export async function generateStaticParams(): Promise<
   { category: string; slug: string }[]
 > {
   const slugs = getAllSlug('contents');
-  const categories = ['project', 'product', 'private'];
 
-  return categories.flatMap((category) =>
-    slugs.map((slug) => ({
-      category,
-      slug,
-    })),
-  );
+  const cards = (
+    await Promise.all(
+      slugs.map(async (slug) => {
+        const markdown = await getMarkdown(`contents/${slug}.html.md`);
+        if (!markdown) {
+          return null;
+        }
+        const { data } = markdown;
+        return {
+          slug,
+          category: data.category || '',
+        };
+      }),
+    )
+  ).filter((card): card is NonNullable<typeof card> => card !== null);
+
+  return cards;
 }
 
 export default async function BlogDetailPage(props: {
@@ -37,7 +48,7 @@ export default async function BlogDetailPage(props: {
 
   return (
     <div
-      className="container"
+      className={styles.markdown}
       dangerouslySetInnerHTML={{ __html: htmlContent }}
     />
   );

@@ -1,14 +1,28 @@
 import Cards from '@/components/cards';
+import { getAllSlug } from '@/libs/get-all-slug';
+import { getMarkdown } from '@/libs/get-markdown';
 
 type PostsProps = {
   params: Promise<{ category: string }>; // params を Promise に
 };
 export async function generateStaticParams(): Promise<{ category: string }[]> {
-  const categories = ['project', 'product', 'private'];
+  const slugs = getAllSlug('contents');
+  const cards = (
+    await Promise.all(
+      slugs.map(async (slug) => {
+        const markdown = await getMarkdown(`contents/${slug}.html.md`);
+        if (!markdown) {
+          return null;
+        }
+        const { data } = markdown;
+        return {
+          category: data.category || '',
+        };
+      }),
+    )
+  ).filter((card): card is NonNullable<typeof card> => card !== null);
 
-  return categories.map((category) => ({
-    category,
-  }));
+  return cards;
 }
 
 export default async function Home(props: PostsProps) {
