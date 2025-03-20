@@ -1,0 +1,48 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+}
+
+.button {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.iconWrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu {
+  position: absolute;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  gap: 10px;
+  box-shadow: 0 0 3px var(--color-black);
+}
+
+.menuItem {
+  padding: 10px 45px;
+  text-decoration: none;
+  color: var(--color-black);
+  transition: background 0.2s;
+
+  &:hover {
+    background: #f0f0f0;
+  }
+}
