@@ -18,7 +18,7 @@ const AWARDS = [
   {
     id: 2,
     award: '企業賞',
-    hackathonName: '技育博 vol.4',
+    hackathonName: '技育博 vol.5',
     title: '目覚まし黒電話',
     link: '',
     date: '2024.12',
