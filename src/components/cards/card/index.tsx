@@ -14,7 +14,7 @@ const Card = ({ title, tag, date, imageUrl, link }: CardProps) => {
   return (
     <div className={styles.card}>
       <Link href={link || ''}>
-        <div className={styles.image}>
+        <div className={styles.image_wrap}>
           <img src={imageUrl} alt="アイコン" className={styles.icon} />
         </div>
         <div className={styles.info}>
