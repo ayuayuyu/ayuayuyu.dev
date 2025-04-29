@@ -1,8 +1,9 @@
 .card {
   width: 310px;
   height: 305px;
-  border: 1px solid var(--color-black);
-  background-color: #c2e9ee;
+  border: 2px solid var(--color-black);
+  // background-color: #c2e9ee;
+  background-color: var(--background-color);
   padding-top: 5px;
   display: flex;
   justify-content: center;
