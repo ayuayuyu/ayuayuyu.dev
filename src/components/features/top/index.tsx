@@ -1,5 +1,4 @@
 import TopLayout from './layout';
-import TopIcon from './icon';
 import AboutMeTop from './about';
 import MainSkills from './skills';
 import Products from './products';
@@ -9,7 +8,6 @@ import Project from './projects';
 const Top = () => {
   return (
     <TopLayout>
-      <TopIcon />
       <AboutMeTop />
       <MainSkills />
       <Products />
