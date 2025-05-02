@@ -4,7 +4,7 @@ import styles from './index.module.scss';
 
 type ProductCardProps = {
   isEven: boolean;
-  icon: string;
+  imageUrl: string;
   title: string;
   link: string;
   description: string;
@@ -12,7 +12,7 @@ type ProductCardProps = {
 
 const ProductsCard = ({
   isEven,
-  icon,
+  imageUrl,
   title,
   link,
   description,
@@ -20,7 +20,7 @@ const ProductsCard = ({
   return (
     <div className={styles.card} data-even={isEven}>
       <div className={styles.image}>
-        <img src={icon} alt="アイコン" className={styles.icon} />
+        <img src={imageUrl} alt="アイコン" className={styles.icon} />
       </div>
       <div className={styles.info}>
         <p className={styles.title}>{title}</p>
