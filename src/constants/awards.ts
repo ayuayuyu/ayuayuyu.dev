@@ -12,7 +12,7 @@ const AWARDS = [
     award: '努力賞',
     hackathonName: '技育CAMP vol.18',
     title: 'CodeCrush',
-    link: '',
+    link: '/posts/award/65',
     date: '2024.12',
   },
   {
@@ -28,8 +28,16 @@ const AWARDS = [
     award: '努力賞',
     hackathonName: '技育CAMP vol.23',
     title: 'HottoSpot',
-    link: '',
+    link: '/posts/award/46',
     date: '2025.2',
+  },
+  {
+    id: 4,
+    award: '企業賞',
+    hackathonName: '技育博 vol.1',
+    title: 'HottoSpot',
+    link: '/posts/award/60',
+    date: '2025.4',
   },
 ];
 export default AWARDS;

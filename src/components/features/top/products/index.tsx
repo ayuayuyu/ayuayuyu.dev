@@ -28,7 +28,7 @@ const Products = async () => {
     )
   ).filter((card): card is NonNullable<typeof card> => card !== null);
 
-  const category = 'products';
+  const category = 'product';
 
   const filteredCards = cards.filter((card) => card.category === category);
 

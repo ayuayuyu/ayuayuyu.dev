@@ -34,7 +34,9 @@ const Cards = async ({ children, category }: CardProps) => {
 
   const filteredCards =
     category === 'All'
-      ? cards
+      ? cards.filter(
+          (card) => card.category !== 'award' && card.category !== 'product',
+        )
       : cards.filter((card) => card.category === category);
 
   return (
