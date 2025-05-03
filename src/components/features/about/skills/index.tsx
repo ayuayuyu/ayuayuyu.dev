@@ -1,4 +1,4 @@
-import { FRONTEND, BACKEND, OTHER } from '@/constants/mainskill';
+import { FRONTEND, BACKEND, OTHER } from '@/constants/icons';
 import TitleLayout from '@/components/title';
 import SkillLayout from '@/components/skill';
 import styles from './index.module.scss';

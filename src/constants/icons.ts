@@ -93,8 +93,7 @@ export const OTHER = [
   { icon: 'simple-icons:render', label: 'Render', width: '48', height: '48' },
 ];
 
-// export const TOOLS = [
-//   { icon: 'logos:git-icon', label: 'Git', width: '48', height: '48' },
-//   { icon: 'logos:github-icon', label: 'GitHub', width: '48', height: '48' },
-//   { icon: 'devicon:vscode', label: 'VSCode', width: '48', height: '48' },
-// ]
+export const LINKICON = [
+  { icon: 'logos:github-icon', label: 'GitHub', width: '48', height: '48' },
+  // { icon: 'prime:twitter', label: 'X', width: '48', height: '48' },
+];

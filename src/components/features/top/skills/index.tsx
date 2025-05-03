@@ -1,4 +1,4 @@
-import { MAINSKILLS } from '@/constants/mainskill';
+import { MAINSKILLS } from '@/constants/icons';
 import TitleLayout from '@/components/title';
 import SkillLayout from '@/components/skill';
 import styles from './index.module.scss';
