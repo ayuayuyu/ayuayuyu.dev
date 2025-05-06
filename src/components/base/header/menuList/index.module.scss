@@ -6,6 +6,27 @@
   justify-content: center;
   width: 64px;
   height: 64px;
+
+  .potato_warp {
+    img {
+      width: 12px;
+      height: 64px;
+      @container (max-width: 600px) {
+        height: 48px;
+      }
+    }
+  }
+
+  .burger_warp {
+    img {
+      width: 54px;
+      height: 54px;
+      @container (max-width: 600px) {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  }
 }
 
 .button {

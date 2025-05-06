@@ -1,7 +1,7 @@
 .tag {
   height: 25px;
   padding: 0 10px;
-  background-color: #fafaef;
+  background-color: #fff;
   display: inline-block;
   display: flex;
   justify-content: center;
@@ -10,12 +10,4 @@
   border: var(--color-black) 1px solid;
   font-size: 16px;
   font-weight: var(--font-weight-medium);
-  transition: all 0.3s;
-  &:hover {
-    background-color: #e0e0e0;
-  }
-  &.active {
-    background-color: var(--color-black);
-    color: #fff;
-  }
 }

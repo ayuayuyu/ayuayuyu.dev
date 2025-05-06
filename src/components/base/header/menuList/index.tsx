@@ -19,14 +19,14 @@ const MenuList = () => {
         transition={{ duration: 0.3 }}
       >
         {isOpen ? (
-          <div>
+          <div className={styles.potato_warp}>
             <motion.div
               className={styles.iconWrapper}
               initial={{ opacity: 0, rotate: 0 }}
               animate={{ opacity: 1, rotate: 45 }}
               transition={{ duration: 0.3 }}
             >
-              <img src={potate.src} alt="Potato X" width={12} height={64} />
+              <img src={potate.src} alt="Potato X" />
             </motion.div>
             <motion.div
               className={styles.iconWrapper}
@@ -34,18 +34,20 @@ const MenuList = () => {
               animate={{ opacity: 1, rotate: -45 }}
               transition={{ duration: 0.3 }}
             >
-              <img src={potate.src} alt="Potato X" width={12} height={64} />
+              <img src={potate.src} alt="Potato X" />
             </motion.div>
           </div>
         ) : (
-          <motion.div
-            className={styles.iconWrapper}
-            initial={{ opacity: 1 }}
-            animate={{ opacity: isOpen ? 0 : 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            <img src={hamburger.src} alt="Burger Menu" width={64} height={64} />
-          </motion.div>
+          <div className={styles.burger_warp}>
+            <motion.div
+              className={styles.iconWrapper}
+              initial={{ opacity: 1 }}
+              animate={{ opacity: isOpen ? 0 : 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img src={hamburger.src} alt="Burger Menu" />
+            </motion.div>
+          </div>
         )}
       </motion.button>
 
