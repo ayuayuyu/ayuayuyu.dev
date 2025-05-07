@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+:root {
+  padding: 0 8%;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  max-width: 1200px;
+  margin: auto;
+  background-color: $background-color;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 25px,
+      rgba(0, 0, 0, 0.04) 26px,
+      rgba(0, 0, 0, 0.04) 26px,
+      transparent 27px,
+      transparent 51px,
+      rgba(0, 0, 0, 0.04) 52px,
+      rgba(0, 0, 0, 0.04) 52px,
+      transparent 53px,
+      transparent 77px,
+      rgba(0, 0, 0, 0.04) 78px,
+      rgba(0, 0, 0, 0.04) 78px,
+      transparent 79px,
+      transparent 103px,
+      rgba(0, 0, 0, 0.04) 104px,
+      rgba(0, 0, 0, 0.04) 104px,
+      transparent 105px,
+      transparent 129px,
+      rgba(0, 0, 0, 0.04) 130px,
+      rgba(0, 0, 0, 0.04) 130px
+    ),
+    repeating-linear-gradient(
+      to right,
+      transparent 25px,
+      rgba(0, 0, 0, 0.04) 26px,
+      rgba(0, 0, 0, 0.04) 26px,
+      transparent 27px,
+      transparent 51px,
+      rgba(0, 0, 0, 0.04) 52px,
+      rgba(0, 0, 0, 0.04) 52px,
+      transparent 53px,
+      transparent 77px,
+      rgba(0, 0, 0, 0.04) 78px,
+      rgba(0, 0, 0, 0.04) 78px,
+      transparent 79px,
+      transparent 103px,
+      rgba(0, 0, 0, 0.04) 104px,
+      rgba(0, 0, 0, 0.04) 104px,
+      transparent 105px,
+      transparent 129px,
+      rgba(0, 0, 0, 0.04) 130px,
+      rgba(0, 0, 0, 0.04) 130px
+    );
+  word-wrap: break-word;
+  container-type: inline-size;
+}
+
+* {
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+p {
+  margin: 0;
+  color: #000;
+}

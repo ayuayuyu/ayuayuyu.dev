@@ -1,7 +1,7 @@
 .awardCard {
   gap: 20px;
   display: flex;
-  border-bottom: 1.5px solid var(--color-black);
+  border-bottom: 1.5px solid $color-black;
   padding-top: 10px;
   padding-bottom: 10px;
   @container (max-width: 550px) {
@@ -20,17 +20,17 @@
         content: '[';
         width: 3px;
         height: 3px;
-        font-weight: var(--font-weight-medium);
+        font-weight: $font-weight-medium;
       }
 
       &::after {
         content: ']';
         width: 3px;
         height: 3px;
-        font-weight: var(--font-weight-medium);
+        font-weight: $font-weight-medium;
       }
       font-size: 32px;
-      font-weight: var(--font-weight-medium);
+      font-weight: $font-weight-medium;
       @container (max-width: 550px) {
         font-size: 24px;
       }
@@ -51,7 +51,7 @@
     align-items: flex-start;
     .hackathonName {
       font-size: 32px;
-      font-weight: var(--font-weight-medium);
+      font-weight: $font-weight-medium;
       @container (max-width: 550px) {
         font-size: 24px;
       }

@@ -1,7 +1,7 @@
 import { getAllSlug } from '@/libs/get-all-slug';
 import { getMarkdown } from '@/libs/get-markdown';
 import { markdownToHtml } from '@/libs/markdown-to-html';
-import styles from './style.module.scss';
+import '@/styles/md-styles.scss';
 
 export async function generateStaticParams(): Promise<
   { category: string; slug: string }[]
@@ -48,7 +48,7 @@ export default async function BlogDetailPage(props: {
 
   return (
     <div
-      className={styles.markdown}
+      className="markdown"
       dangerouslySetInnerHTML={{ __html: htmlContent }}
     />
   );
