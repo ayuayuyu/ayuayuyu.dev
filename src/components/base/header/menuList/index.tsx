@@ -60,13 +60,25 @@ const MenuList = () => {
             exit={{ x: 150, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <Link href="/" className={styles.menuItem}>
+            <Link
+              href="/"
+              className={styles.menuItem}
+              onClick={() => setIsOpen(false)}
+            >
               Home
             </Link>
-            <Link href="/about" className={styles.menuItem}>
+            <Link
+              href="/about"
+              className={styles.menuItem}
+              onClick={() => setIsOpen(false)}
+            >
               About
             </Link>
-            <Link href="/posts" className={styles.menuItem}>
+            <Link
+              href="/posts"
+              className={styles.menuItem}
+              onClick={() => setIsOpen(false)}
+            >
               posts
             </Link>
           </motion.div>
