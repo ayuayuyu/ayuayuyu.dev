@@ -24,6 +24,7 @@ export const MAINSKILLS = [
   { icon: 'devicon:fastapi', label: 'FastAPI', width: '48', height: '48' },
   { icon: 'logos:nodejs-icon', label: 'Node.js', width: '48', height: '48' },
   { icon: 'unjs:nitro', label: 'Nitro', width: '48', height: '48' },
+  { icon: 'logos:hono', label: 'Hono', width: '48', height: '48' },
   {
     icon: 'vscode-icons:file-type-firebase',
     label: 'Firebase',
@@ -65,6 +66,8 @@ export const BACKEND = [
   { icon: 'devicon:fastapi', label: 'FastAPI', width: '48', height: '48' },
   { icon: 'logos:nodejs-icon', label: 'Node.js', width: '48', height: '48' },
   { icon: 'unjs:nitro', label: 'Nitro', width: '48', height: '48' },
+  { icon: 'logos:hono', label: 'Hono', width: '48', height: '48' },
+  { icon: 'logos:go', label: 'Go', width: '48', height: '48' },
   {
     icon: 'vscode-icons:file-type-firebase',
     label: 'Firebase',
@@ -72,6 +75,7 @@ export const BACKEND = [
     height: '48',
   },
   { icon: 'devicon:sqlite', label: 'SQLite', width: '48', height: '48' },
+  { icon: 'skill-icons:docker', label: 'Docker', width: '48', height: '48' },
 ];
 
 export const OTHER = [
