@@ -41,6 +41,9 @@
     }
     .detailLink {
       margin-top: 25px;
+      &:hover {
+        color: $color-gray;
+      }
       @container (max-width: 800px) {
         text-align: center;
       }
