@@ -1,6 +1,6 @@
 import styles from './index.module.scss';
+import { LinkExternal } from '@/constants/svgIcon';
 import Link from 'next/link';
-import { Icon } from '@iconify/react';
 
 type AwardProps = {
   award: string;
@@ -22,7 +22,7 @@ const AwardCard = ({ award, hackathonName, title, link, date }: AwardProps) => {
         <p className={styles.title}>{title}</p>
       </div>
       <Link href={link || ''} className={styles.link}>
-        <Icon icon="rivet-icons:link-external" width="32" height="32" />
+        <LinkExternal />
       </Link>
     </div>
   );

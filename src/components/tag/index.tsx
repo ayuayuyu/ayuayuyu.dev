@@ -1,5 +1,5 @@
 import styles from './index.module.scss';
-import { Icon } from '@iconify/react/dist/iconify.js';
+import { Tag } from '@/constants/svgIcon';
 
 type TagProps = {
   children: React.ReactNode;
@@ -8,7 +8,7 @@ type TagProps = {
 const TagLayout = ({ children }: TagProps) => {
   return (
     <span className={styles.tag}>
-      <Icon icon="material-symbols:tag" width="16" height="16" />
+      <Tag />
       {children}
     </span>
   );

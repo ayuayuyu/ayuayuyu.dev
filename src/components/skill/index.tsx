@@ -1,11 +1,11 @@
-import { Icon } from '@iconify/react/dist/iconify.js';
 import styles from './index.module.scss';
+import { SVGProps } from 'react';
 
 type SkillItem = {
-  icon: string;
   label: string;
   width: string;
   height: string;
+  component: React.FC<SVGProps<SVGSVGElement>>;
 };
 type SkillProps = {
   children: React.ReactNode;
@@ -17,10 +17,10 @@ const SkillLayout = ({ children, skills }: SkillProps) => {
     <div className={styles.container}>
       <div className={styles.title}>{children}</div>
       <div className={styles.gridContainer}>
-        {skills.map(({ icon, label, width, height }) => (
+        {skills.map(({ component: Icon, label, width, height }) => (
           <div key={label} className={styles.iconContainer}>
-            <Icon icon={icon} width={width} height={height} />
-            <p>{label}</p>
+            <Icon width={width} height={height} />
+            <div>{label}</div>
           </div>
         ))}
       </div>
