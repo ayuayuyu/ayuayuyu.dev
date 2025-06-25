@@ -1,7 +1,7 @@
 import styles from './index.module.scss';
 import IconImg from '../../../../public/default/icon.webp';
 import MenuList from './menuList';
-import MYNAME from '@/constants/myname';
+import { HANDLENAME } from '@/constants/myname';
 import { Icons } from './icons';
 import Link from 'next/link';
 
@@ -12,7 +12,7 @@ const Header = () => {
         <img src={IconImg.src} alt="アイコン" className={styles.icon} />
       </Link>
       <Link href="/">
-        <div className={styles.name}>{MYNAME}</div>
+        <div className={styles.name}>{HANDLENAME}</div>
       </Link>
       <div className={styles.icons}>
         <Icons />

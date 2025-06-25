@@ -1,3 +1,3 @@
-const MYNAME: string = 'Ayuayuyu';
-
-export default MYNAME;
+// handleName
+export const HANDLENAME: string = 'Ayuayuyu';
+export const MYNAME: string = '花田歩夢';

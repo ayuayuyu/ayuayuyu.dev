@@ -1,13 +1,21 @@
 import AboutMeLayout from '@/components/about';
 import TitleLayout from '@/components/title';
-import DisplaySentence from './displaySentence';
+import DisplaySentence from '../../../displaySentence';
+import { HANDLENAME } from '@/constants/myname';
+import { SENTENCE } from '@/constants/sentence';
+import IconImg from '../../../../../public/default/icon.webp';
 
 const AboutMeTop = () => {
   return (
     <>
       <TitleLayout>About Me</TitleLayout>
-      <AboutMeLayout tag={'バックエンド'} isVisible={true}>
-        <DisplaySentence />
+      <AboutMeLayout
+        name={HANDLENAME}
+        tag={'バックエンド'}
+        isVisible={true}
+        img={IconImg.src}
+      >
+        <DisplaySentence sentence={SENTENCE} />
       </AboutMeLayout>
     </>
   );

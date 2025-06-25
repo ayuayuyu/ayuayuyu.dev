@@ -1,14 +1,14 @@
 import TitleLayout from '@/components/title';
 import HobbyCard from './hobby';
-import HOBBYS from '@/constants/hobbys';
+import HOBBIES from '@/constants/hobbys';
 import styles from './index.module.scss';
 
-const Hobbys = () => {
+const Hobbies = () => {
   return (
     <div>
-      <TitleLayout>Hobbys</TitleLayout>
+      <TitleLayout>Hobbies</TitleLayout>
       <div className={styles.container}>
-        {HOBBYS.map((hobby) => (
+        {HOBBIES.map((hobby) => (
           <HobbyCard
             key={hobby.id}
             title={hobby.title}
@@ -20,4 +20,4 @@ const Hobbys = () => {
   );
 };
 
-export default Hobbys;
+export default Hobbies;

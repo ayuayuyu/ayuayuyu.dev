@@ -2,7 +2,7 @@ import AboutLayout from './layout';
 import AboutMe from './aboutMe';
 import Skills from './skills';
 import Historys from './historys';
-import Hobbys from './hobbys';
+import Hobbies from './hobbies';
 
 const About = () => {
   return (
@@ -10,7 +10,7 @@ const About = () => {
       <AboutMe />
       <Skills />
       <Historys />
-      <Hobbys />
+      <Hobbies />
     </AboutLayout>
   );
 };

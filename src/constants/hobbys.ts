@@ -1,4 +1,4 @@
-const HOBBYS = [
+const HOBBIES = [
   {
     id: 0,
     title: 'Anime',
@@ -13,4 +13,4 @@ const HOBBYS = [
   },
 ];
 
-export default HOBBYS;
+export default HOBBIES;

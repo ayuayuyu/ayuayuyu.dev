@@ -1,10 +1,13 @@
-import SENTENCE from '@/constants/sentence';
 import styles from './index.module.scss';
 
-const DisplaySentence = () => {
+type SentenceProps = {
+  sentence: string[];
+};
+
+const DisplaySentence = ({ sentence }: SentenceProps) => {
   return (
     <div className={styles.sentence}>
-      {SENTENCE.map((sentence, index) => (
+      {sentence.map((sentence, index) => (
         <p key={index}>{sentence}</p>
       ))}
     </div>
