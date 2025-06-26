@@ -16,6 +16,9 @@ import {
   Git,
   Github,
   Go,
+  Gin,
+  Prisma,
+  Mysql,
   Sqlite,
   Docker,
   C,
@@ -25,6 +28,11 @@ import {
   Markdown,
   Vercel,
   Render,
+  Java,
+  Tauri,
+  Pwa,
+  Gas,
+  Cloudflarepages,
 } from './svgIcon';
 
 export const MAINSKILLS = [
@@ -89,6 +97,8 @@ export const FRONTEND = [
   },
   { component: React, label: 'React', width: '48', height: '48' },
   { component: Nextjs, label: 'Next.js', width: '48', height: '48' },
+  { component: Pwa, label: 'PWA', width: '48', height: '48' },
+  { component: Tauri, label: 'Tauri', width: '48', height: '48' },
 ];
 
 export const BACKEND = [
@@ -97,12 +107,15 @@ export const BACKEND = [
   { component: Nitro, label: 'Nitro', width: '48', height: '48' },
   { component: Hono, label: 'Hono', width: '48', height: '48' },
   { component: Go, label: 'Go', width: '48', height: '48' },
+  { component: Gin, label: 'Gin', width: '48', height: '48' },
   {
     component: Firebase,
     label: 'Firebase',
     width: '48',
     height: '48',
   },
+  { component: Prisma, label: 'Prisma', width: '48', height: '48' },
+  { component: Mysql, label: 'Mysql', width: '48', height: '48' },
   { component: Sqlite, label: 'SQLite', width: '48', height: '48' },
   { component: Docker, label: 'Docker', width: '48', height: '48' },
 ];
@@ -110,12 +123,14 @@ export const BACKEND = [
 export const OTHER = [
   { component: C, label: 'C言語', width: '48', height: '48' },
   { component: Python, label: 'python', width: '48', height: '48' },
+  { component: Java, label: 'Java', width: '48', height: '48' },
   { component: Git, label: 'Git', width: '48', height: '48' },
   { component: Github, label: 'GitHub', width: '48', height: '48' },
   { component: Vscode, label: 'VSCode', width: '48', height: '48' },
   { component: Canva, label: 'canva', width: '48', height: '48' },
   { component: Figma, label: 'Figma', width: '48', height: '48' },
   { component: Typst, label: 'Typst', width: '48', height: '48' },
+  { component: Gas, label: 'Google App Script', width: '48', height: '48' },
   {
     component: Markdown,
     label: 'Markdown',
@@ -123,6 +138,12 @@ export const OTHER = [
     height: '48',
   },
   { component: Vercel, label: 'Vercel', width: '48', height: '48' },
+  {
+    component: Cloudflarepages,
+    label: 'Cloudflare pages',
+    width: '48',
+    height: '48',
+  },
   { component: Render, label: 'Render', width: '48', height: '48' },
 ];
 
