@@ -1,4 +1,5 @@
 import TagLayout from '@/components/tag';
+import { formattedDate } from '@/utils/formattes';
 import Link from 'next/link';
 import styles from './index.module.scss';
 
@@ -11,6 +12,7 @@ type CardProps = {
 };
 
 const Card = ({ title, tag, date, imageUrl, link }: CardProps) => {
+  const displayDate = formattedDate(date);
   return (
     <div className={styles.card}>
       <Link href={link || ''}>
@@ -22,7 +24,7 @@ const Card = ({ title, tag, date, imageUrl, link }: CardProps) => {
             <div className={styles.tag}>
               <TagLayout>{tag}</TagLayout>
             </div>
-            <div className={styles.date}>{date}</div>
+            <div className={styles.date}>{displayDate}</div>
           </div>
           <p className={styles.title}>{title}</p>
         </div>

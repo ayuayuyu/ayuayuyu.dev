@@ -22,7 +22,7 @@ export const getMarkdown = (
     data.overview = getOverview(content);
     if (typeof data.tags === 'string') {
       const tagMatch = data.tags.match(/tag:([^,]+)/);
-      const dateMatch = data.tags.match(/date:([\d.]+)/);
+      const dateMatch = data.tags.match(/date:(\d{4}-\d{2}-\d{2})/);
 
       data.tag = tagMatch ? tagMatch[1].trim() : null;
       data.date = dateMatch ? dateMatch[1].trim() : null;

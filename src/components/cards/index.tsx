@@ -39,6 +39,10 @@ const Cards = async ({ children, category }: CardProps) => {
         )
       : cards.filter((card) => card.category === category);
 
+  //日にちでソート
+  filteredCards.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+  );
   return (
     <div>
       <TitleLayout>{children}</TitleLayout>
