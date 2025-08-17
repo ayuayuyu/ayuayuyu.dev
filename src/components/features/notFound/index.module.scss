@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+}
+
+.svg {
+  max-width: 100%;
+}
+
+.backBtn {
+  font-size: 24px;
+  color: $color-gray;
+  display: inline-block;
+  margin-top: 5%;
+  @container (max-width: 600px) {
+    font-size: 16px;
+  }
+}
