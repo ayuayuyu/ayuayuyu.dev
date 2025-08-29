@@ -58,6 +58,8 @@ export const MAINSKILLS = [
   },
   { component: React, label: 'React', width: '48', height: '48' },
   { component: Nextjs, label: 'Next.js', width: '48', height: '48' },
+  { component: Go, label: 'Go', width: 
+'48', height: '48' },
   { component: Fastapi, label: 'FastAPI', width: '48', height: '48' },
   { component: Nodejs, label: 'Node.js', width: '48', height: '48' },
   { component: Nitro, label: 'Nitro', width: '48', height: '48' },
