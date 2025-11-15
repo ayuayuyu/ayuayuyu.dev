@@ -73,6 +73,16 @@ const HISTORYS = [
     year: 'R5',
     month: '4',
   },
+  {
+    id: 8,
+    title: '内藤研究室 配属',
+    organization: 'PlusLab',
+    link: 'https://pluslab.org/',
+    description:
+      '主にネットワークの研究をしています。\n様々なイベントを行って楽しんでいる研究室です。',
+    year: 'R7',
+    month: '5',
+  },
 ];
 
 export default HISTORYS;
