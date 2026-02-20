@@ -18,8 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'ayuayuyu Portfolio ✦',
-  description:
-    'ayuayuyuのポートフォリオサイト - バックエンドエンジニアを目指す大学生',
+  description: 'ayuayuyuのポートフォリオサイト - 気ままに過ごしている大学生',
 };
 
 export default function RootLayout({

@@ -22,12 +22,6 @@
     font-weight: $font-weight-semi-bold;
     @include gradient-text($gradient-primary);
   }
-
-  .subtitle {
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin-top: 8px;
-  }
 }
 
 .backBtn {
