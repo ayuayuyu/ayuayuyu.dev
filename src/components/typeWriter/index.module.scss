@@ -1,0 +1,14 @@
+.typewriter {
+  display: inline;
+}
+
+.cursor {
+  opacity: 0;
+  @include gradient-text($gradient-primary);
+  font-weight: 300;
+  transition: opacity 0.1s;
+
+  &.visible {
+    opacity: 1;
+  }
+}

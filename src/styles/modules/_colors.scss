@@ -1,4 +1,50 @@
-$background-color: #fafaf5;
+// ═══════════════════════════════════════
+// Base Colors (SCSS tokens for mixins)
+// ═══════════════════════════════════════
 $color-blue: #097bdf;
 $color-black: #333;
 $color-gray: #7d7d7d;
+$color-white: #ffffff;
+
+// ═══════════════════════════════════════
+// Anime-inspired Accent Colors
+// ═══════════════════════════════════════
+$color-pink: #ff6b9d;
+$color-purple: #c084fc;
+$color-cyan: #22d3ee;
+$color-orange: #fb923c;
+$color-mint: #34d399;
+$color-lavender: #a78bfa;
+$color-sakura: #ffb7c5;
+$color-indigo: #6366f1;
+
+// ═══════════════════════════════════════
+// Gradients
+// ═══════════════════════════════════════
+$gradient-primary: linear-gradient(
+  135deg,
+  $color-pink,
+  $color-purple,
+  $color-cyan
+);
+$gradient-warm: linear-gradient(135deg, $color-orange, $color-pink);
+$gradient-cool: linear-gradient(135deg, $color-blue, $color-purple);
+$gradient-sakura: linear-gradient(135deg, $color-sakura, $color-lavender);
+$gradient-neon: linear-gradient(135deg, $color-cyan, $color-mint);
+
+// ═══════════════════════════════════════
+// Shadows
+// ═══════════════════════════════════════
+$shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.06);
+$shadow-card: 0 8px 30px rgba(0, 0, 0, 0.08);
+$shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+$shadow-glow-pink: 0 0 20px rgba($color-pink, 0.3);
+$shadow-glow-purple: 0 0 20px rgba($color-purple, 0.3);
+$shadow-glow-cyan: 0 0 20px rgba($color-cyan, 0.3);
+
+// ═══════════════════════════════════════
+// Theme-aware CSS Custom Properties
+// ═══════════════════════════════════════
+// These go in globals.scss via :root / [data-theme="dark"]
+// $background-color is kept for backwards compat
+$background-color: #fafaf5;

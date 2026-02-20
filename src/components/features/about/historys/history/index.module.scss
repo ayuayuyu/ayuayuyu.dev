@@ -1,74 +1,119 @@
 .subContainer {
-  gap: 10px;
+  gap: 20px;
   display: flex;
   padding: 5%;
   justify-content: center;
   align-items: center;
+
   .history {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+
     .point {
-      width: 52px;
-      height: 52px;
-      border: 3px solid $color-blue;
-      background-color: $background-color;
+      width: 56px;
+      height: 56px;
+      border: 3px solid $color-purple;
+      background: var(--history-point-bg);
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      font-size: 16px;
+      font-size: 14px;
+      font-weight: $font-weight-semi-bold;
+      color: $color-purple;
+      z-index: 2;
+      position: relative;
+
       @container (max-width: 400px) {
-        width: 40px;
-        height: 40px;
-        font-size: 13px;
+        width: 44px;
+        height: 44px;
+        font-size: 12px;
       }
     }
+
     .line {
       height: 300px;
-      width: 5px;
-      background-color: $color-blue;
+      width: 3px;
+      background: linear-gradient(to bottom, $color-purple, $color-pink);
       position: absolute;
-      z-index: -1;
+      z-index: 0;
+      border-radius: 2px;
+
       @container (max-width: 400px) {
-        width: 3px;
+        width: 2px;
         height: 200px;
       }
     }
   }
+
   .historyItem {
-    border: 1px solid $color-black;
+    border-radius: 16px;
+    background: var(--bg-secondary);
+    box-shadow: var(--shadow-soft);
     width: 350px;
     height: 175px;
     overflow: hidden;
-    padding-left: 20px;
-    padding-right: 20px;
-    transition: transform 0.2s;
-    &:hover {
-      transform: scale(1.02);
+    padding: 16px 20px;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: $gradient-primary;
+      border-radius: 0 2px 2px 0;
     }
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-card-hover;
+    }
+
     @container (max-width: 400px) {
       width: 225px;
       height: 150px;
     }
+
     .subTitle {
       text-align: left;
-      font-size: 25px;
-      padding-top: 10px;
+      font-size: 22px;
+      font-weight: $font-weight-semi-bold;
+      padding-top: 4px;
       margin: 0;
+      color: var(--text-primary);
+
       @container (max-width: 400px) {
         font-size: 16px;
-        padding-top: 5px;
+        padding-top: 2px;
       }
     }
+
     .navLink {
       text-decoration: none;
-      color: $color-blue;
+      color: $color-purple;
+      font-weight: $font-weight-medium;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $color-pink;
+      }
     }
+
     .description {
       padding-top: 10px;
       white-space: pre-wrap;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+
       @container (max-width: 400px) {
         font-size: 13px;
         padding-top: 5px;

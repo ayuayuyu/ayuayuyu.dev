@@ -1,13 +1,37 @@
 .footer {
-  margin-top: 35px;
-  height: 40px;
+  margin-top: 60px;
+  padding: 30px 0 20px;
   text-align: center;
+  position: relative;
+
+  // グラデーショントップライン
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background: $gradient-primary;
+    @include animate-gradient(6s);
+    border-radius: 2px;
+  }
+
+  .footerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
 
   p {
     padding-bottom: 5px;
     max-width: 80%;
     width: 400px;
     display: inline-block;
-    border-bottom: solid 2px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
   }
 }

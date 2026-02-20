@@ -1,0 +1,145 @@
+@use 'colors' as *;
+@use 'fontweight' as *;
+
+// ═══════════════════════════════════════
+// Glassmorphism
+// ═══════════════════════════════════════
+@mixin glass($bg-opacity: 0.6, $blur: 12px) {
+  background: rgba(255, 255, 255, $bg-opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+// ═══════════════════════════════════════
+// Gradient Text
+// ═══════════════════════════════════════
+@mixin gradient-text($gradient: $gradient-primary) {
+  background: $gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// ═══════════════════════════════════════
+// Card Base Style
+// ═══════════════════════════════════════
+@mixin card-base {
+  border-radius: 16px;
+  box-shadow: $shadow-soft;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+@mixin card-playful {
+  @include card-base;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 18px;
+    background: $gradient-primary;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+// ═══════════════════════════════════════
+// Section Base
+// ═══════════════════════════════════════
+@mixin section-base {
+  padding: 40px 0;
+  position: relative;
+}
+
+// ═══════════════════════════════════════
+// Hover Glow Effect
+// ═══════════════════════════════════════
+@mixin hover-glow($color: $color-pink) {
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+  &:hover {
+    box-shadow: 0 0 20px rgba($color, 0.4);
+    transform: translateY(-2px);
+  }
+}
+
+// ═══════════════════════════════════════
+// Sparkle Background Decoration
+// ═══════════════════════════════════════
+@mixin decorative-dots {
+  &::after {
+    content: '✦';
+    position: absolute;
+    font-size: 12px;
+    color: $color-pink;
+    opacity: 0.4;
+    animation: sparkle-float 3s ease-in-out infinite;
+  }
+}
+
+// ═══════════════════════════════════════
+// Pill Badge
+// ═══════════════════════════════════════
+@mixin pill-badge($bg: $color-white, $border: $color-black) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 14px;
+  border-radius: 30px;
+  border: 1.5px solid $border;
+  background-color: $bg;
+  font-size: 14px;
+  font-weight: $font-weight-medium;
+  gap: 4px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: $shadow-soft;
+  }
+}
+
+// ═══════════════════════════════════════
+// Container Query Helper
+// ═══════════════════════════════════════
+@mixin container-narrow {
+  @container (max-width: 400px) {
+    @content;
+  }
+}
+
+@mixin container-small {
+  @container (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin container-medium {
+  @container (max-width: 800px) {
+    @content;
+  }
+}
+
+@mixin container-large {
+  @container (max-width: 1100px) {
+    @content;
+  }
+}

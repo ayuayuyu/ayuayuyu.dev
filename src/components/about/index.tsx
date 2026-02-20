@@ -1,5 +1,7 @@
 import TagLayout from '../tag';
 import Link from 'next/link';
+import SocialLinks from '../socialLinks';
+import { GitLink } from '@/constants/link';
 import styles from './index.module.scss';
 
 type AboutMeProps = {
@@ -30,6 +32,11 @@ const AboutMeLayout = ({
             <div className={styles.detailLink}>
               <Link href={'/about'}>詳しくみる</Link>
             </div>
+          )}
+          {!isVisible && (
+            <>
+              <SocialLinks />
+            </>
           )}
         </div>
         <div className={styles.selfie}>

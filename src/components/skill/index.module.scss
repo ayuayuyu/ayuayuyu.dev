@@ -1,9 +1,14 @@
 .container {
-  border-bottom: 1px solid $color-black;
+  border-bottom: none;
+  padding: 20px 0;
+
   .title {
     padding-top: 25px;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: $font-weight-semi-bold;
+    @include gradient-text($gradient-cool);
+    text-align: center;
+    margin-bottom: 20px;
   }
 
   .gridContainer {
@@ -14,13 +19,16 @@
     place-items: center;
     gap: 35px;
     padding-bottom: 25px;
-    @container (max-width: 1100px) {
+
+    @include container-large {
       grid-template-columns: repeat(5, 100px);
     }
+
     @container (max-width: 750px) {
       grid-template-columns: repeat(auto-fit, 100px);
     }
-    @container (max-width: 400px) {
+
+    @include container-narrow {
       gap: 20px;
       padding: 20px;
     }
@@ -29,8 +37,44 @@
       width: 100px;
       height: 80px;
       gap: 10px;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding: 10px;
+      border-radius: 12px;
+      background: transparent;
+      transition: transform 0.3s ease;
+      cursor: default;
+
+      &:hover {
+        animation: icon-bounce 0.5s ease;
+
+        div {
+          color: $color-purple;
+        }
+      }
+
+      div {
+        font-size: 12px;
+        color: var(--text-secondary);
+        font-weight: $font-weight-medium;
+        transition: color 0.3s ease;
+      }
     }
+  }
+}
+
+@keyframes icon-bounce {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  30% {
+    transform: translateY(-8px) scale(1.15);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.05);
+  }
+  70% {
+    transform: translateY(-6px) scale(1.1);
+  }
+  100% {
+    transform: translateY(0) scale(1);
   }
 }

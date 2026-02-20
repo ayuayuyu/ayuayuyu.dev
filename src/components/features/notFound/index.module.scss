@@ -4,18 +4,52 @@
   align-items: center;
   justify-content: center;
   min-height: 90vh;
+  position: relative;
 }
 
 .svg {
   max-width: 100%;
+  @include animate-float(4s);
+  filter: drop-shadow(0 10px 20px rgba($color-pink, 0.15));
+}
+
+.message {
+  text-align: center;
+  margin-top: 20px;
+
+  .title {
+    font-size: 24px;
+    font-weight: $font-weight-semi-bold;
+    @include gradient-text($gradient-primary);
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+  }
 }
 
 .backBtn {
-  font-size: 24px;
-  color: $color-gray;
+  font-size: 16px;
   display: inline-block;
-  margin-top: 5%;
-  @container (max-width: 600px) {
-    font-size: 16px;
+  margin-top: 30px;
+  padding: 12px 32px;
+  border-radius: 30px;
+  background: $gradient-primary;
+  color: $color-white;
+  font-weight: $font-weight-medium;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-glow-pink;
+  }
+
+  @include container-small {
+    font-size: 14px;
+    padding: 10px 24px;
   }
 }

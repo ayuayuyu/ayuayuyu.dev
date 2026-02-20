@@ -2,14 +2,30 @@
   padding: 0;
   margin-top: 10%;
   text-align: center;
-  font-weight: $font-weight-semi-bold;
-  padding-bottom: 5%;
+  font-weight: $font-weight-max;
+  padding-bottom: 3%;
   font-size: 48px;
-  color: $color-blue;
-  @container (max-width: 400px) {
-    font-size: 40px;
+  @include gradient-text($gradient-primary);
+  letter-spacing: 2px;
+  position: relative;
+
+  // 装飾的なドットライン
+  &::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: $gradient-primary;
+    @include animate-gradient;
+    border-radius: 2px;
+    margin: 12px auto 0;
   }
-  @container (max-width: 600px) {
+
+  @include container-narrow {
+    font-size: 36px;
+  }
+
+  @include container-small {
     margin-top: 25%;
   }
 }

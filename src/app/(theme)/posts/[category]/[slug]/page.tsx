@@ -1,6 +1,7 @@
 import { getAllSlug } from '@/libs/get-all-slug';
 import { getMarkdown } from '@/libs/get-markdown';
 import { markdownToHtml } from '@/libs/markdown-to-html';
+import ArticleLayout from '@/components/articleLayout';
 import '@/styles/md-styles.scss';
 
 export async function generateStaticParams(): Promise<
@@ -30,26 +31,33 @@ export async function generateStaticParams(): Promise<
 export default async function BlogDetailPage(props: {
   params: Promise<{ category: string; slug: string }>;
 }) {
-  const resolvedParams = await props.params; // ✅ `params` を `await` して解決
+  const resolvedParams = await props.params;
   const { category, slug } = resolvedParams;
 
   if (!slug || !category) {
     return <div>ページが見つかりません</div>;
   }
 
-  // 🔹 getMarkdown の戻り値が null の場合を考慮
   const markdownData = getMarkdown(`contents/${slug}.html.md`);
-  const markdownContent = markdownData?.content;
 
-  if (!markdownContent) {
+  if (!markdownData?.content) {
     return <div>ページが見つかりません</div>;
   }
-  const htmlContent = await markdownToHtml(markdownContent);
+
+  const { data } = markdownData;
+  const htmlContent = await markdownToHtml(markdownData.content);
 
   return (
-    <div
-      className="markdown"
-      dangerouslySetInnerHTML={{ __html: htmlContent }}
-    />
+    <ArticleLayout
+      title={data.title || '無題'}
+      date={data.date || ''}
+      tag={data.tag || ''}
+      category={category}
+    >
+      <div
+        className="markdown"
+        dangerouslySetInnerHTML={{ __html: htmlContent }}
+      />
+    </ArticleLayout>
   );
 }

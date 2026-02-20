@@ -1,53 +1,114 @@
 .markdown {
   width: 100%;
   font-size: 1rem;
+  line-height: 1.9;
+  color: var(--text-primary);
+
+  // 最初のh1を記事タイトルとして非表示（ArticleLayoutで表示するため）
+  > .markdown-content > h1:first-child {
+    display: none;
+  }
 
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-    padding-bottom: 10px;
-    margin-top: 40px;
-    margin-bottom: 10px;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    padding: 14px 20px;
+    background: linear-gradient(
+      135deg,
+      rgba(#ffb7c5, 0.1),
+      rgba(#a78bfa, 0.08)
+    );
+    border-radius: 16px;
+    border-left: 4px solid #c084fc;
+    letter-spacing: 0.3px;
   }
 
   h2 {
-    font-size: 1.5rem;
-    margin: 30px 0;
-    margin-bottom: 10px;
+    font-size: 1.35rem;
     font-weight: 700;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding-bottom: 10px;
+    margin-top: 40px;
+    margin-bottom: 14px;
+    padding: 12px 18px;
+    background: linear-gradient(
+      135deg,
+      rgba(#c084fc, 0.08),
+      rgba(#22d3ee, 0.05)
+    );
+    border-radius: 14px;
+    border-left: 4px solid #ff6b9d;
+    letter-spacing: 0.3px;
   }
 
   h3 {
-    margin: 30px 0;
-    margin-bottom: 10px;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 700;
+    margin-top: 32px;
+    margin-bottom: 10px;
+    padding: 8px 14px;
+    padding-left: 16px;
+    border-left: 3px solid #22d3ee;
+    border-radius: 0 10px 10px 0;
+    background: rgba(#22d3ee, 0.04);
+  }
+
+  h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+    padding-left: 12px;
+    border-left: 2px solid rgba(#c084fc, 0.3);
   }
 
   p {
-    margin: 20px 0;
+    margin: 16px 0;
+    line-height: 2;
   }
 
   a {
-    color: var(--accent);
+    color: #6366f1;
     text-decoration: none;
-    transition-duration: 0.3s;
+    padding-bottom: 1px;
+    border-bottom: 1.5px dashed rgba(#6366f1, 0.3);
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease;
+
+    &:hover {
+      color: #c084fc;
+      border-bottom-color: #c084fc;
+      border-bottom-style: solid;
+    }
   }
 
   img {
     max-width: 100%;
-    border: 1px solid #eee;
+    border-radius: 18px;
+    margin: 24px 0;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.01);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
   }
 
   iframe {
     max-width: 100%;
+    border-radius: 18px;
+    margin: 24px 0;
   }
 
-  ul ol {
-    margin: 20px 0;
+  ul,
+  ol {
+    margin: 18px 0;
+    padding-left: 1.6em;
   }
 
   ol {
@@ -55,50 +116,141 @@
   }
 
   ul {
-    padding-left: 2em;
-    list-style: inside;
+    list-style: none;
+
+    li {
+      position: relative;
+      padding-left: 1.2em;
+
+      &::before {
+        content: '●';
+        position: absolute;
+        left: 0;
+        color: #c084fc;
+        font-size: 0.55em;
+        top: 0.75em;
+      }
+    }
 
     ul {
-      list-style-type: circle;
+      li::before {
+        content: '○';
+        color: #ff6b9d;
+        font-size: 0.55em;
+      }
     }
+  }
+
+  li {
+    margin: 8px 0;
+    line-height: 1.85;
+  }
+
+  blockquote {
+    margin: 24px 0;
+    padding: 18px 24px;
+    border-left: 4px solid #c084fc;
+    background: linear-gradient(
+      135deg,
+      rgba(#c084fc, 0.06),
+      rgba(#ffb7c5, 0.04)
+    );
+    border-radius: 0 16px 16px 0;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  pre {
+    margin: 24px 0;
+    border-radius: 18px;
+    overflow: hidden;
   }
 
   pre > code {
     display: block;
-    padding: 10.5px;
-    margin: 0 0 11px;
-    font-size: 13px;
-    line-height: 1.6;
-    color: #333333;
+    padding: 20px 24px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--text-primary);
     word-break: break-all;
     word-wrap: break-word;
-    background-color: #f5f5f5;
+    background-color: var(--card-bg);
+    border-radius: 18px;
+    border: 1.5px solid var(--glass-border);
+  }
+
+  code:not(pre code) {
+    padding: 3px 8px;
+    font-size: 0.88em;
+    background: linear-gradient(
+      135deg,
+      rgba(#c084fc, 0.08),
+      rgba(#ffb7c5, 0.06)
+    );
+    border-radius: 8px;
+    border: 1px solid rgba(#c084fc, 0.15);
+    color: #c084fc;
+    font-weight: 500;
+  }
+
+  hr {
+    margin: 36px auto;
+    border: none;
+    height: 3px;
+    width: 60px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ffb7c5, #c084fc, #22d3ee);
   }
 
   table {
-    border: 1px solid rgba(0, 0, 0, 0.1);
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
     border-spacing: 0;
-    margin: 20px 0;
-    margin-bottom: 30px;
+    margin: 28px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1.5px solid var(--glass-border);
 
     th {
-      padding: 8px;
+      padding: 14px 18px;
       line-height: 1.6;
       vertical-align: top;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-bottom: 1.5px solid var(--glass-border);
+      background: linear-gradient(
+        135deg,
+        rgba(#c084fc, 0.08),
+        rgba(#22d3ee, 0.05)
+      );
+      font-weight: 700;
+      font-size: 14px;
+
+      &:not(:last-child) {
+        border-right: 1px solid var(--glass-border);
+      }
     }
 
     td {
-      padding: 8px;
+      padding: 12px 18px;
       line-height: 1.6;
       vertical-align: top;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+
+      &:not(:last-child) {
+        border-right: 1px solid var(--glass-border);
+      }
     }
 
-    tr:nth-child(odd) td {
-      background-color: #f9f9f9;
+    tr:not(:last-child) td {
+      border-bottom: 1px solid var(--glass-border);
     }
+
+    tr:nth-child(even) td {
+      background-color: var(--card-bg);
+    }
+  }
+
+  strong {
+    font-weight: 700;
+    color: var(--text-primary);
+    background: linear-gradient(transparent 60%, rgba(#ffb7c5, 0.25) 60%);
   }
 }

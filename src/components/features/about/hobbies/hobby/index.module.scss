@@ -1,18 +1,55 @@
 .card {
   width: 310px;
-  border: 1px solid $color-black;
+  padding: 24px 20px;
+  border-radius: 16px;
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow-soft);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  .title {
-    width: 300px;
-    font-size: 32px;
-    text-align: center;
-    border-bottom: 1px solid $color-black;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: $gradient-primary;
+    @include animate-gradient;
   }
-  .description {
-    width: 300px;
+
+  &:hover {
+    transform: translateY(-6px) rotate(1deg);
+    box-shadow: $shadow-card-hover;
+
+    .title {
+      letter-spacing: 1px;
+    }
+  }
+
+  .title {
+    width: 100%;
+    font-size: 24px;
     text-align: center;
+    font-weight: $font-weight-semi-bold;
+    @include gradient-text($gradient-cool);
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba($color-purple, 0.15);
+    margin-bottom: 12px;
+  }
+
+  .description {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
   }
 }
