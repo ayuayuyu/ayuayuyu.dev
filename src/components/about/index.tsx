@@ -12,9 +12,6 @@ type AboutMeProps = {
   img: string;
 };
 
-// GitHubリンクからユーザー名を抽出
-const githubUsername = GitLink.split('/').pop() || '';
-
 const AboutMeLayout = ({
   children,
   name,
