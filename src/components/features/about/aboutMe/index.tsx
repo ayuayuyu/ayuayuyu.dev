@@ -1,5 +1,5 @@
 import AboutMeLayout from '@/components/about';
-import TitleLayout from '@/components/title';
+import GradientTitle from '@/components/gradientTitle';
 import DisplaySentence from '../../../displaySentence';
 import { MYNAME } from '@/constants/myname';
 import { ABOUTSENTENCE } from '@/constants/sentence';
@@ -8,7 +8,7 @@ import iconImg from '../../../../../public/default/hanadaayumu.webp';
 const AboutMe = () => {
   return (
     <>
-      <TitleLayout>About Me</TitleLayout>
+      <GradientTitle subtitle="― 自己紹介 ―">About Me</GradientTitle>
       <AboutMeLayout
         name={MYNAME}
         tag={'バックエンド'}

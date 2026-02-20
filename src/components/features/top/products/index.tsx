@@ -1,4 +1,4 @@
-import TitleLayout from '@/components/title';
+import GradientTitle from '@/components/gradientTitle';
 import ProductsCard from './card';
 import { getAllSlug } from '@/libs/get-all-slug';
 import { getMarkdown } from '@/libs/get-markdown';
@@ -34,7 +34,7 @@ const Products = async () => {
 
   return (
     <div>
-      <TitleLayout>Products</TitleLayout>
+      <GradientTitle subtitle="― プロダクト ―">Products</GradientTitle>
       <div className={styles.container}>
         {filteredCards.map(
           ({ title, slug, imageUrl, description, category }, i) => (

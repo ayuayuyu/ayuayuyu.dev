@@ -1,4 +1,4 @@
-import TitleLayout from '@/components/title';
+import GradientTitle from '@/components/gradientTitle';
 import HobbyCard from './hobby';
 import HOBBIES from '@/constants/hobbys';
 import styles from './index.module.scss';
@@ -6,7 +6,7 @@ import styles from './index.module.scss';
 const Hobbies = () => {
   return (
     <div>
-      <TitleLayout>Hobbies</TitleLayout>
+      <GradientTitle subtitle="― 趣味 ―">Hobbies</GradientTitle>
       <div className={styles.container}>
         {HOBBIES.map((hobby) => (
           <HobbyCard

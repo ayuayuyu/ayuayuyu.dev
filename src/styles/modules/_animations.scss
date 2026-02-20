@@ -1,0 +1,131 @@
+// ═══════════════════════════════════════
+// Keyframe Animations
+// ═══════════════════════════════════════
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes sparkle-float {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-8px) scale(1.2);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(255, 107, 157, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 107, 157, 0.4);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+// ═══════════════════════════════════════
+// Animation Mixins
+// ═══════════════════════════════════════
+
+@mixin animate-float($duration: 3s) {
+  animation: float $duration ease-in-out infinite;
+}
+
+@mixin animate-gradient($duration: 4s) {
+  background-size: 200% 200%;
+  animation: gradient-shift $duration ease infinite;
+}
+
+@mixin animate-slide-up($delay: 0s) {
+  animation: slide-up 0.6s ease-out $delay both;
+}
+
+@mixin animate-wiggle-hover {
+  &:hover {
+    animation: wiggle 0.4s ease;
+  }
+}
+
+@mixin shimmer-effect {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}

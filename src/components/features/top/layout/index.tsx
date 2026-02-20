@@ -1,13 +1,11 @@
+import PageLayout from '@/components/pageLayout';
+
 type TopLayoutProps = {
   children: React.ReactNode;
 };
 
 const TopLayout = ({ children }: TopLayoutProps) => {
-  return (
-    <div>
-      <main>{children}</main>
-    </div>
-  );
+  return <PageLayout>{children}</PageLayout>;
 };
 
 export default TopLayout;

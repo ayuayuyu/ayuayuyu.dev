@@ -1,0 +1,23 @@
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px 0;
+  width: 100%;
+}
+
+.line {
+  flex: 1;
+  max-width: 120px;
+  height: 2px;
+  background: $gradient-primary;
+  border-radius: 2px;
+  opacity: 0.3;
+}
+
+.emoji {
+  font-size: 20px;
+  @include animate-float(3s);
+  filter: drop-shadow(0 2px 4px rgba(255, 107, 157, 0.3));
+}
