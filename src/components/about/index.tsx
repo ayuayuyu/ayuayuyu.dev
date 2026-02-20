@@ -1,7 +1,6 @@
 import TagLayout from '../tag';
 import Link from 'next/link';
 import SocialLinks from '../socialLinks';
-import { GitLink } from '@/constants/link';
 import styles from './index.module.scss';
 
 type AboutMeProps = {
