@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { THEMEICON } from '@/constants/icons';
 import styles from './index.module.scss';
 
 const ThemeToggle = () => {
@@ -41,7 +42,7 @@ const ThemeToggle = () => {
       title={isDark ? 'ライトモード' : 'ダークモード'}
     >
       <span className={`${styles.icon} ${isDark ? styles.dark : styles.light}`}>
-        {isDark ? '🌙' : '☀️'}
+        {isDark ? THEMEICON[1].component({}) : THEMEICON[0].component({})}
       </span>
     </button>
   );

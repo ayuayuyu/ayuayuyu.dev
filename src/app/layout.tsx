@@ -5,6 +5,7 @@ import Header from '@/components/base/header';
 import Footer from '@/components/base/footer';
 import FloatingParticles from '@/components/floatingParticles';
 import ThemeToggle from '@/components/themeToggle';
+import WelcomeScreen from '@/components/welcomeScreen';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <WelcomeScreen />
         <FloatingParticles />
         <ThemeToggle />
         <Header />

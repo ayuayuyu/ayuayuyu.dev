@@ -1,0 +1,85 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-color);
+  transition: opacity 0.6s ease;
+  opacity: 1;
+
+  &.fadeOut {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.greeting {
+  text-align: center;
+}
+
+.welcomeText {
+  font-size: 48px;
+  font-weight: $font-weight-max;
+  @include gradient-text($gradient-primary);
+  letter-spacing: 4px;
+
+  @include container-small {
+    font-size: 32px;
+    letter-spacing: 2px;
+  }
+}
+
+.sparkles {
+  display: flex;
+  gap: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.3s;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+.sparkle {
+  font-size: 18px;
+  color: $color-lavender;
+  opacity: 0;
+  animation: sparkle-pop 1.5s ease-in-out infinite;
+
+  &:nth-child(2) {
+    color: $color-pink;
+  }
+
+  &:nth-child(3) {
+    color: $color-cyan;
+  }
+
+  &:nth-child(4) {
+    color: $color-purple;
+  }
+
+  &:nth-child(5) {
+    color: $color-sakura;
+  }
+}
+
+@keyframes sparkle-pop {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8) translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) translateY(-6px);
+  }
+}

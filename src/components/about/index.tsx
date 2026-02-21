@@ -1,6 +1,7 @@
 import TagLayout from '../tag';
 import Link from 'next/link';
 import SocialLinks from '../socialLinks';
+import FlippablePhoto from '../flippablePhoto';
 import styles from './index.module.scss';
 
 type AboutMeProps = {
@@ -9,6 +10,7 @@ type AboutMeProps = {
   tag: string;
   isVisible: boolean;
   img: string;
+  secretImg?: string;
 };
 
 const AboutMeLayout = ({
@@ -17,6 +19,7 @@ const AboutMeLayout = ({
   tag,
   isVisible,
   img,
+  secretImg,
 }: AboutMeProps) => {
   return (
     <div>
@@ -39,7 +42,11 @@ const AboutMeLayout = ({
           )}
         </div>
         <div className={styles.selfie}>
-          <img src={img} alt="アイコン" className={styles.icon} />
+          {secretImg ? (
+            <FlippablePhoto frontSrc={img} backSrc={secretImg} />
+          ) : (
+            <img src={img} alt="アイコン" className={styles.icon} />
+          )}
         </div>
       </div>
     </div>

@@ -7,9 +7,15 @@ type TypeWriterProps = {
   text: string;
   speed?: number;
   className?: string;
+  onComplete?: () => void;
 };
 
-const TypeWriter = ({ text, speed = 60, className }: TypeWriterProps) => {
+const TypeWriter = ({
+  text,
+  speed = 60,
+  className,
+  onComplete,
+}: TypeWriterProps) => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
@@ -21,8 +27,10 @@ const TypeWriter = ({ text, speed = 60, className }: TypeWriterProps) => {
         setCurrentIndex((prev) => prev + 1);
       }, speed);
       return () => clearTimeout(timeout);
+    } else if (currentIndex === text.length && onComplete) {
+      onComplete();
     }
-  }, [currentIndex, text, speed]);
+  }, [currentIndex, text, speed, onComplete]);
 
   useEffect(() => {
     const cursorInterval = setInterval(() => {

@@ -4,12 +4,16 @@ import MainSkills from './skills';
 import Products from './products';
 import Awards from './awards';
 import Project from './projects';
+import News from './news';
 import AnimatedSection from '@/components/animatedSection';
 
 const Top = () => {
   return (
     <TopLayout>
       <AnimatedSection>
+        <News />
+      </AnimatedSection>
+      <AnimatedSection delay={0.1}>
         <AboutMeTop />
       </AnimatedSection>
       <AnimatedSection delay={0.1}>

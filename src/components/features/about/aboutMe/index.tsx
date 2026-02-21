@@ -4,6 +4,7 @@ import DisplaySentence from '../../../displaySentence';
 import { MYNAME } from '@/constants/myname';
 import { ABOUTSENTENCE } from '@/constants/sentence';
 import iconImg from '../../../../../public/default/hanadaayumu.webp';
+import secretImg from '../../../../../public/default/ayumuArabu.webp';
 
 const AboutMe = () => {
   return (
@@ -14,6 +15,7 @@ const AboutMe = () => {
         tag={'バックエンド'}
         isVisible={false}
         img={iconImg.src}
+        secretImg={secretImg.src}
       >
         <DisplaySentence sentence={ABOUTSENTENCE} />
       </AboutMeLayout>

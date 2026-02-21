@@ -4,6 +4,7 @@ import Skills from './skills';
 import Historys from './historys';
 import Hobbies from './hobbies';
 import AnimatedSection from '@/components/animatedSection';
+import PhotoCarousel from '@/components/features/about/photoCarousel';
 
 const About = () => {
   return (
@@ -19,6 +20,9 @@ const About = () => {
       </AnimatedSection>
       <AnimatedSection delay={0.1}>
         <Hobbies />
+      </AnimatedSection>
+      <AnimatedSection delay={0.1}>
+        <PhotoCarousel />
       </AnimatedSection>
     </AboutLayout>
   );

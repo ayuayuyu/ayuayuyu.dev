@@ -2,19 +2,40 @@
 
 import styles from './index.module.scss';
 import { GitLink, XLink, QiitaLink, ZennLink } from '@/constants/link';
+import { LINKICON } from '@/constants/icons';
 
 type SocialItem = {
   name: string;
   url: string;
-  icon: string;
+  icon: React.ReactNode;
   color: string;
 };
 
 const socials: SocialItem[] = [
-  { name: 'X', url: XLink, icon: '𝕏', color: '#1da1f2' },
-  { name: 'GitHub', url: GitLink, icon: '⌘', color: '#6e5494' },
-  { name: 'Qiita', url: QiitaLink, icon: 'Q', color: '#55c500' },
-  { name: 'Zenn', url: ZennLink, icon: 'Z', color: '#3ea8ff' },
+  {
+    name: 'X',
+    url: XLink,
+    icon: LINKICON[1].component({ width: 18, height: 18 }),
+    color: '#1da1f2',
+  },
+  {
+    name: 'GitHub',
+    url: GitLink,
+    icon: LINKICON[0].component({ width: 18, height: 18 }),
+    color: '#6e5494',
+  },
+  {
+    name: 'Qiita',
+    url: QiitaLink,
+    icon: LINKICON[2].component({ width: 18, height: 18 }),
+    color: '#55c500',
+  },
+  {
+    name: 'Zenn',
+    url: ZennLink,
+    icon: LINKICON[3].component({ width: 18, height: 18 }),
+    color: '#3ea8ff',
+  },
 ];
 
 const SocialLinks = () => {

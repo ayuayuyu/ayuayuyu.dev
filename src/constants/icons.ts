@@ -33,6 +33,11 @@ import {
   Pwa,
   Gas,
   Cloudflarepages,
+  LightMode,
+  DarkMode,
+  X,
+  Qiita,
+  Zenn,
 } from './svgIcon';
 
 export const MAINSKILLS = [
@@ -58,8 +63,7 @@ export const MAINSKILLS = [
   },
   { component: React, label: 'React', width: '48', height: '48' },
   { component: Nextjs, label: 'Next.js', width: '48', height: '48' },
-  { component: Go, label: 'Go', width: 
-'48', height: '48' },
+  { component: Go, label: 'Go', width: '48', height: '48' },
   { component: Fastapi, label: 'FastAPI', width: '48', height: '48' },
   { component: Nodejs, label: 'Node.js', width: '48', height: '48' },
   { component: Nitro, label: 'Nitro', width: '48', height: '48' },
@@ -150,5 +154,13 @@ export const OTHER = [
 ];
 
 export const LINKICON = [
-  { component: Github, label: 'GitHub', width: '48', height: '48' },
+  { component: Github, label: 'GitHub', width: '24', height: '24' },
+  { component: X, label: 'X', width: '24', height: '24' },
+  { component: Qiita, label: 'Qiita', width: '24', height: '24' },
+  { component: Zenn, label: 'Zenn', width: '24', height: '24' },
+];
+
+export const THEMEICON = [
+  { component: LightMode, label: 'ライトモード', width: '48', height: '48' },
+  { component: DarkMode, label: 'ダークモード', width: '48', height: '48' },
 ];
