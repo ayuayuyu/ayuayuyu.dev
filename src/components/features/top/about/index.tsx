@@ -11,7 +11,7 @@ const AboutMeTop = () => {
       <GradientTitle subtitle="― 自己紹介 ―">About Me</GradientTitle>
       <AboutMeLayout
         name={HANDLENAME}
-        tag={'バックエンド'}
+        tag={'インフラエンジニア'}
         isVisible={true}
         img={IconImg.src}
       >

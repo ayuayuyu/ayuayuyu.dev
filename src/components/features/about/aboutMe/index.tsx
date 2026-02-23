@@ -12,7 +12,7 @@ const AboutMe = () => {
       <GradientTitle subtitle="― 自己紹介 ―">About Me</GradientTitle>
       <AboutMeLayout
         name={MYNAME}
-        tag={'バックエンド'}
+        tag={'インフラエンジニア'}
         isVisible={false}
         img={iconImg.src}
         secretImg={secretImg.src}
