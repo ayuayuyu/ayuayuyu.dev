@@ -81,6 +81,13 @@ const MenuList = () => {
             >
               posts
             </Link>
+            <Link
+              href="/gallery"
+              className={styles.menuItem}
+              onClick={() => setIsOpen(false)}
+            >
+              Gallery
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
