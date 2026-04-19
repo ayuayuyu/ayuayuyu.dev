@@ -4,4 +4,6 @@ export const XLink: string = 'https://x.com/ayuayuyu07';
 export const XName: string = '@ayuayuyu07';
 export const QiitaLink: string = 'https://qiita.com/Ayuayuyu';
 export const QiitaName: string = '@Ayuayuyu';
+export const ZennLink: string = 'https://zenn.dev/ayuayuyu';
+export const ZennName: string = '@ayuayuyu';
 export const GmailLink: string = 'hanadaayumu78@gmail.com';
