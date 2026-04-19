@@ -1,14 +1,14 @@
 .awardCard {
-  gap: 20px;
+  gap: $px-20;
   display: flex;
-  border-bottom: 1.5px solid $color-black;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  @container (max-width: 550px) {
-    gap: 10px;
+  border-bottom: $px-1_5 solid $color-black;
+  padding-top: $px-10;
+  padding-bottom: $px-10;
+  @container (max-width: $px-550) {
+    gap: $px-10;
   }
-  @container (max-width: 420px) {
-    gap: 5px;
+  @container (max-width: $px-420) {
+    gap: $px-5;
   }
   .awardInfo {
     display: flex;
@@ -18,30 +18,30 @@
     .award {
       &::before {
         content: '[';
-        width: 3px;
-        height: 3px;
+        width: $px-3;
+        height: $px-3;
         font-weight: $font-weight-medium;
       }
 
       &::after {
         content: ']';
-        width: 3px;
-        height: 3px;
+        width: $px-3;
+        height: $px-3;
         font-weight: $font-weight-medium;
       }
-      font-size: 32px;
+      font-size: $px-32;
       font-weight: $font-weight-medium;
-      @container (max-width: 550px) {
-        font-size: 24px;
+      @container (max-width: $px-550) {
+        font-size: $px-24;
       }
-      @container (max-width: 420px) {
-        font-size: 20px;
+      @container (max-width: $px-420) {
+        font-size: $px-20;
       }
     }
     .date {
-      font-size: 16px;
-      @container (max-width: 550px) {
-        font-size: 12px;
+      font-size: $px-16;
+      @container (max-width: $px-550) {
+        font-size: $px-12;
       }
     }
   }
@@ -50,29 +50,29 @@
     flex-direction: column;
     align-items: flex-start;
     .hackathonName {
-      font-size: 32px;
+      font-size: $px-32;
       font-weight: $font-weight-medium;
-      @container (max-width: 550px) {
-        font-size: 24px;
+      @container (max-width: $px-550) {
+        font-size: $px-24;
       }
-      @container (max-width: 420px) {
-        font-size: 20px;
+      @container (max-width: $px-420) {
+        font-size: $px-20;
       }
     }
     .title {
-      font-size: 24px;
-      @container (max-width: 550px) {
-        font-size: 16px;
+      font-size: $px-24;
+      @container (max-width: $px-550) {
+        font-size: $px-16;
       }
-      @container (max-width: 420px) {
-        font-size: 14px;
+      @container (max-width: $px-420) {
+        font-size: $px-14;
       }
     }
   }
   .link {
-    padding-top: 5px;
-    @container (max-width: 400px) {
-      padding-top: 0px;
+    padding-top: $px-5;
+    @container (max-width: $px-400) {
+      padding-top: 0;
     }
   }
 }

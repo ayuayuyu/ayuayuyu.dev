@@ -4,12 +4,12 @@
   text-align: center;
   font-weight: $font-weight-semi-bold;
   padding-bottom: 5%;
-  font-size: 48px;
+  font-size: $px-48;
   color: $color-blue;
-  @container (max-width: 400px) {
-    font-size: 40px;
+  @container (max-width: $px-400) {
+    font-size: $px-40;
   }
-  @container (max-width: 600px) {
+  @container (max-width: $px-600) {
     margin-top: 25%;
   }
 }

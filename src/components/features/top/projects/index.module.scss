@@ -1,7 +1,3 @@
 .container {
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 310px);
-  justify-content: center;
-  gap: 60px 55px;
+  @include cards-grid;
 }

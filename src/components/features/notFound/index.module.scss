@@ -11,11 +11,11 @@
 }
 
 .backBtn {
-  font-size: 24px;
+  font-size: $px-24;
   color: $color-gray;
   display: inline-block;
   margin-top: 5%;
-  @container (max-width: 600px) {
-    font-size: 16px;
+  @container (max-width: $px-600) {
+    font-size: $px-16;
   }
 }

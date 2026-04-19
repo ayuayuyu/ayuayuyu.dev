@@ -2,49 +2,49 @@
   display: grid;
   place-content: center;
   place-items: center;
-  padding: 35px 0;
+  padding: $px-35 0;
   width: 100%;
   height: auto;
-  grid-template-columns: minmax(300px, 550px) minmax(300px, 350px);
+  grid-template-columns: minmax($px-300, $px-550) minmax($px-300, $px-350);
 
   grid-auto-flow: dense;
 
-  gap: 30px;
-  @container (max-width: 800px) {
-    grid-template-columns: repeat(auto-fit, 300px);
-    padding: 5px 0;
-    gap: 20px;
+  gap: $px-30;
+  @container (max-width: $px-800) {
+    grid-template-columns: repeat(auto-fit, $px-300);
+    padding: $px-5 0;
+    gap: $px-20;
   }
   .info {
     order: 0;
-    @container (max-width: 800px) {
+    @container (max-width: $px-800) {
       order: 1;
     }
     .name {
-      font-size: 32px;
-      border-bottom: 1px solid $color-black;
-      @container (max-width: 800px) {
-        font-size: 26px;
+      font-size: $px-32;
+      border-bottom: $px-1 solid $color-black;
+      @container (max-width: $px-800) {
+        font-size: $px-26;
         text-align: center;
       }
     }
     .tag {
-      margin-top: 10px;
-      gap: 15px;
+      margin-top: $px-10;
+      gap: $px-15;
       display: flex;
-      @container (max-width: 800px) {
+      @container (max-width: $px-800) {
         justify-content: center;
       }
     }
     .detail {
-      margin-top: 15px;
+      margin-top: $px-15;
     }
     .detailLink {
-      margin-top: 25px;
+      margin-top: $px-25;
       &:hover {
         color: $color-gray;
       }
-      @container (max-width: 800px) {
+      @container (max-width: $px-800) {
         text-align: center;
       }
     }
@@ -54,10 +54,10 @@
     text-align: right;
     width: 100%;
     img {
-      width: 350px;
+      width: $px-350;
       height: auto;
     }
-    @container (max-width: 800px) {
+    @container (max-width: $px-800) {
       height: auto;
       img {
         width: 100%;

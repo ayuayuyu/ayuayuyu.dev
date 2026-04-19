@@ -1,18 +1,18 @@
 .card {
-  width: 310px;
-  border: 1px solid $color-black;
+  width: $px-310;
+  border: $px-1 solid $color-black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   .title {
-    width: 300px;
-    font-size: 32px;
+    width: $px-300;
+    font-size: $px-32;
     text-align: center;
-    border-bottom: 1px solid $color-black;
+    border-bottom: $px-1 solid $color-black;
   }
   .description {
-    width: 300px;
+    width: $px-300;
     text-align: center;
   }
 }

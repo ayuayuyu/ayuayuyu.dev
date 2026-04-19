@@ -1,36 +1,36 @@
 .container {
-  border-bottom: 1px solid $color-black;
+  border-bottom: $px-1 solid $color-black;
   .title {
-    padding-top: 25px;
-    font-size: 32px;
+    padding-top: $px-25;
+    font-size: $px-32;
     font-weight: $font-weight-semi-bold;
   }
 
   .gridContainer {
     display: grid;
-    grid-template-columns: repeat(7, 100px);
+    grid-template-columns: repeat(7, $px-100);
     text-align: center;
     place-content: center;
     place-items: center;
-    gap: 35px;
-    padding-bottom: 25px;
-    @container (max-width: 1100px) {
-      grid-template-columns: repeat(5, 100px);
+    gap: $px-35;
+    padding-bottom: $px-25;
+    @container (max-width: $px-1100) {
+      grid-template-columns: repeat(5, $px-100);
     }
-    @container (max-width: 750px) {
-      grid-template-columns: repeat(auto-fit, 100px);
+    @container (max-width: $px-750) {
+      grid-template-columns: repeat(auto-fit, $px-100);
     }
-    @container (max-width: 400px) {
-      gap: 20px;
-      padding: 20px;
+    @container (max-width: $px-400) {
+      gap: $px-20;
+      padding: $px-20;
     }
 
     .iconContainer {
-      width: 100px;
-      height: 80px;
-      gap: 10px;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      width: $px-100;
+      height: $px-80;
+      gap: $px-10;
+      padding-top: $px-10;
+      padding-bottom: $px-10;
     }
   }
 }

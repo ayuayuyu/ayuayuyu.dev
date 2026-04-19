@@ -4,26 +4,26 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
+  width: $px-64;
+  height: $px-64;
 
   .potato_warp {
     img {
-      width: 12px;
-      height: 64px;
-      @container (max-width: 600px) {
-        height: 48px;
+      width: $px-12;
+      height: $px-64;
+      @container (max-width: $px-600) {
+        height: $px-48;
       }
     }
   }
 
   .burger_warp {
     img {
-      width: 54px;
-      height: 54px;
-      @container (max-width: 600px) {
-        width: 48px;
-        height: 48px;
+      width: $px-54;
+      height: $px-54;
+      @container (max-width: $px-600) {
+        width: $px-48;
+        height: $px-48;
       }
     }
   }
@@ -31,8 +31,8 @@
 
 .button {
   position: relative;
-  width: 64px;
-  height: 64px;
+  width: $px-64;
+  height: $px-64;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -49,16 +49,16 @@
 
 .menu {
   position: absolute;
-  top: 70px;
+  top: $px-70;
   display: flex;
   flex-direction: column;
   background: #ffffff;
-  gap: 10px;
-  box-shadow: 0 0 3px $color-black;
+  gap: $px-10;
+  box-shadow: 0 0 $px-3 $color-black;
 }
 
 .menuItem {
-  padding: 10px 45px;
+  padding: $px-10 $px-45;
   text-decoration: none;
   color: $color-black;
   transition: background 0.2s;

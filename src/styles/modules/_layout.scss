@@ -1,0 +1,13 @@
+@use 'sizes' as *;
+
+@mixin cards-grid(
+  $item-width: $px-310,
+  $row-gap: $px-60,
+  $column-gap: $px-55
+) {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, $item-width);
+  justify-content: center;
+  gap: $row-gap $column-gap;
+}

@@ -1,15 +1,15 @@
 .card {
-  width: 310px;
-  height: 305px;
-  border: 1.5px solid $color-black;
+  width: $px-310;
+  height: $px-305;
+  border: $px-1_5 solid $color-black;
   background-color: $background-color;
-  padding-top: 5px;
+  padding-top: $px-5;
   display: flex;
   justify-content: center;
   .image_wrap {
-    width: 300px;
-    height: 200px;
-    border: 0.5px solid $color-black;
+    width: $px-300;
+    height: $px-200;
+    border: $px-0_5 solid $color-black;
     img {
       object-fit: cover;
       width: 100%;
@@ -17,19 +17,19 @@
     }
   }
   .info {
-    padding-top: 10px;
+    padding-top: $px-10;
     .subInfo {
       display: flex;
       justify-content: space-between;
       .date {
-        font-size: 14px;
+        font-size: $px-14;
         color: $color-black;
       }
     }
     .title {
       text-align: center;
-      padding-top: 13.5px;
-      font-size: 24px;
+      padding-top: $px-13_5;
+      font-size: $px-24;
       font-weight: $font-weight-medium;
     }
   }

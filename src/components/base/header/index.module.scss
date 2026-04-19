@@ -1,31 +1,31 @@
 .header {
-  height: 70px;
-  padding-inline: 40px;
+  height: $px-70;
+  padding-inline: $px-40;
   display: flex;
-  gap: 10px;
+  gap: $px-10;
   align-items: center;
   position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: rgba(223, 223, 223, 0.5);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur($px-2);
   z-index: 1000;
   container-type: inline-size;
 
   .icon {
-    width: 60px;
-    height: 60px;
+    width: $px-60;
+    height: $px-60;
     border-radius: 50%;
-    @container (max-width: 600px) {
-      width: 48px;
-      height: 48px;
+    @container (max-width: $px-600) {
+      width: $px-48;
+      height: $px-48;
     }
   }
   .name {
-    font-size: 32px;
-    @container (max-width: 600px) {
-      font-size: 16px;
+    font-size: $px-32;
+    @container (max-width: $px-600) {
+      font-size: $px-16;
     }
   }
   .icons {
