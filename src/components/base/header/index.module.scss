@@ -17,14 +17,14 @@
     width: $px-60;
     height: $px-60;
     border-radius: 50%;
-    @container (max-width: $px-600) {
+    @container (max-width: #{$px-600}) {
       width: $px-48;
       height: $px-48;
     }
   }
   .name {
     font-size: $px-32;
-    @container (max-width: $px-600) {
+    @container (max-width: #{$px-600}) {
       font-size: $px-16;
     }
   }

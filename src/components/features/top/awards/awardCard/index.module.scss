@@ -4,10 +4,10 @@
   border-bottom: $px-1_5 solid $color-black;
   padding-top: $px-10;
   padding-bottom: $px-10;
-  @container (max-width: $px-550) {
+  @container (max-width: #{$px-550}) {
     gap: $px-10;
   }
-  @container (max-width: $px-420) {
+  @container (max-width: #{$px-420}) {
     gap: $px-5;
   }
   .awardInfo {
@@ -31,16 +31,16 @@
       }
       font-size: $px-32;
       font-weight: $font-weight-medium;
-      @container (max-width: $px-550) {
+      @container (max-width: #{$px-550}) {
         font-size: $px-24;
       }
-      @container (max-width: $px-420) {
+      @container (max-width: #{$px-420}) {
         font-size: $px-20;
       }
     }
     .date {
       font-size: $px-16;
-      @container (max-width: $px-550) {
+      @container (max-width: #{$px-550}) {
         font-size: $px-12;
       }
     }
@@ -52,26 +52,26 @@
     .hackathonName {
       font-size: $px-32;
       font-weight: $font-weight-medium;
-      @container (max-width: $px-550) {
+      @container (max-width: #{$px-550}) {
         font-size: $px-24;
       }
-      @container (max-width: $px-420) {
+      @container (max-width: #{$px-420}) {
         font-size: $px-20;
       }
     }
     .title {
       font-size: $px-24;
-      @container (max-width: $px-550) {
+      @container (max-width: #{$px-550}) {
         font-size: $px-16;
       }
-      @container (max-width: $px-420) {
+      @container (max-width: #{$px-420}) {
         font-size: $px-14;
       }
     }
   }
   .link {
     padding-top: $px-5;
-    @container (max-width: $px-400) {
+    @container (max-width: #{$px-400}) {
       padding-top: 0;
     }
   }

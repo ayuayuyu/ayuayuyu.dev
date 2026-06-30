@@ -4,7 +4,7 @@
   gap: $px-16;
   margin-top: $px-20;
 
-  @container (max-width: $px-800) {
+  @container (max-width: #{$px-800}) {
     justify-content: center;
   }
 }

@@ -6,10 +6,10 @@
   padding-bottom: 5%;
   font-size: $px-48;
   color: $color-blue;
-  @container (max-width: $px-400) {
+  @container (max-width: #{$px-400}) {
     font-size: $px-40;
   }
-  @container (max-width: $px-600) {
+  @container (max-width: #{$px-600}) {
     margin-top: 25%;
   }
 }

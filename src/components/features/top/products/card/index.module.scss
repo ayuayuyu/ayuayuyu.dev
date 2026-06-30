@@ -22,10 +22,10 @@
     order: 1;
   }
 
-  @container (max-width: $px-1190) {
+  @container (max-width: #{$px-1190}) {
     grid-template-columns: repeat(auto-fit, $px-400);
   }
-  @container (max-width: $px-890) {
+  @container (max-width: #{$px-890}) {
     grid-template-columns: repeat(auto-fit, $px-450);
     gap: $px-20;
 
@@ -38,7 +38,7 @@
     }
   }
 
-  @container (max-width: $px-550) {
+  @container (max-width: #{$px-550}) {
     gap: 0; // 要素が消えたときの余白をなくす
   }
 
@@ -53,11 +53,11 @@
       object-fit: cover;
     }
 
-    @container (max-width: $px-1190) {
+    @container (max-width: #{$px-1190}) {
       width: $px-400;
       height: $px-250;
     }
-    @container (max-width: $px-550) {
+    @container (max-width: #{$px-550}) {
       width: $px-300;
       height: $px-200;
     }
@@ -70,10 +70,10 @@
     width: $px-450;
     height: $px-300;
 
-    @container (max-width: $px-1190) {
+    @container (max-width: #{$px-1190}) {
       width: $px-400;
     }
-    @container (max-width: $px-550) {
+    @container (max-width: #{$px-550}) {
       width: $px-300;
       height: $px-128;
     }
@@ -82,7 +82,7 @@
       padding-top: $px-20;
       font-size: $px-32;
 
-      @container (max-width: $px-890) {
+      @container (max-width: #{$px-890}) {
         padding-top: 0;
       }
     }
@@ -91,7 +91,7 @@
       padding-top: $px-25;
       font-size: $px-16;
 
-      @container (max-width: $px-550) {
+      @container (max-width: #{$px-550}) {
         display: none;
         padding-top: 0;
       }

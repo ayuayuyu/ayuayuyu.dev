@@ -10,20 +10,20 @@
   grid-auto-flow: dense;
 
   gap: $px-30;
-  @container (max-width: $px-800) {
+  @container (max-width: #{$px-800}) {
     grid-template-columns: repeat(auto-fit, $px-300);
     padding: $px-5 0;
     gap: $px-20;
   }
   .info {
     order: 0;
-    @container (max-width: $px-800) {
+    @container (max-width: #{$px-800}) {
       order: 1;
     }
     .name {
       font-size: $px-32;
       border-bottom: $px-1 solid $color-black;
-      @container (max-width: $px-800) {
+      @container (max-width: #{$px-800}) {
         font-size: $px-26;
         text-align: center;
       }
@@ -32,7 +32,7 @@
       margin-top: $px-10;
       gap: $px-15;
       display: flex;
-      @container (max-width: $px-800) {
+      @container (max-width: #{$px-800}) {
         justify-content: center;
       }
     }
@@ -44,7 +44,7 @@
       &:hover {
         color: $color-gray;
       }
-      @container (max-width: $px-800) {
+      @container (max-width: #{$px-800}) {
         text-align: center;
       }
     }
@@ -57,7 +57,7 @@
       width: $px-350;
       height: auto;
     }
-    @container (max-width: $px-800) {
+    @container (max-width: #{$px-800}) {
       height: auto;
       img {
         width: 100%;

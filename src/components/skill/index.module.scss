@@ -14,13 +14,13 @@
     place-items: center;
     gap: $px-35;
     padding-bottom: $px-25;
-    @container (max-width: $px-1100) {
+    @container (max-width: #{$px-1100}) {
       grid-template-columns: repeat(5, $px-100);
     }
-    @container (max-width: $px-750) {
+    @container (max-width: #{$px-750}) {
       grid-template-columns: repeat(auto-fit, $px-100);
     }
-    @container (max-width: $px-400) {
+    @container (max-width: #{$px-400}) {
       gap: $px-20;
       padding: $px-20;
     }

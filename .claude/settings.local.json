@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git checkout:*)",
+      "Bash(git commit:*)",
+      "Bash(npm run:*)",
+      "Bash(grep -rn \"color: #\\\\|color: $color-black\\\\|color: $color-gray\" /Users/ayuayuyu/Documents/project/ayuayuyu.dev/src/components --include=\"*.scss\" -l)",
+      "Bash(grep -n \"color: #\\\\|color: $color-black\\\\|color: $color-gray\" /Users/ayuayuyu/Documents/project/ayuayuyu.dev/src/components/gallery/index.module.scss /Users/ayuayuyu/Documents/project/ayuayuyu.dev/src/components/cards/card/index.module.scss /Users/ayuayuyu/Documents/project/ayuayuyu.dev/src/components/features/top/products/card/index.module.scss /Users/ayuayuyu/Documents/project/ayuayuyu.dev/src/components/features/notFound/index.module.scss /Users/ayuayuyu/Documents/project/ayuayuyu.dev/src/components/about/index.module.scss /Users/ayuayuyu/Documents/project/ayuayuyu.dev/src/components/tag/index.module.scss /Users/ayuayuyu/Documents/project/ayuayuyu.dev/src/components/base/header/menuList/index.module.scss)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Bash(do)",
+      "Bash(echo \"=== $f ===\")",
+      "Bash(git show:*)",
+      "Bash(done)"
+    ]
+  }
+}

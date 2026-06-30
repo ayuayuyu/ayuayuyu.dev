@@ -15,7 +15,7 @@
   color: $color-gray;
   display: inline-block;
   margin-top: 5%;
-  @container (max-width: $px-600) {
+  @container (max-width: #{$px-600}) {
     font-size: $px-16;
   }
 }
