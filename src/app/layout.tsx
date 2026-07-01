@@ -29,7 +29,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    // data-theme は描画前のインラインスクリプトで意図的に付与するため、
+    // html 要素の hydration 属性不一致警告を抑制する（テーマFOUC対策の定石）
+    <html lang="ja" suppressHydrationWarning>
       <body className={`${poppins.variable} ${geistMono.variable}`}>
         {/* テーマ復元: 描画前に保存済みの選択を html へ反映し、チラつき(FOUC)を防ぐ */}
         <script
