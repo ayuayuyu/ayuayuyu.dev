@@ -1,5 +1,28 @@
+// ダークトークンを一箇所に定義し、手動トグル([data-theme])と OS 追従の両方から使う
+@mixin theme-dark {
+  --bg: #121210;
+  --surface: #1a1a17;
+  --surface-2: #24241f;
+  --text: #ededea;
+  --text-muted: #9c9c93;
+  --accent: #4da3f5;
+  --accent-strong: #82bdf8;
+  --accent-soft: rgba(77, 163, 245, 0.16);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.72);
+  --row-stripe: rgba(255, 255, 255, 0.03);
+
+  --glass-bg: rgba(18, 18, 16, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  // ダークでは影が沈むので少し深めに
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45), 0 8px 28px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5), 0 18px 56px rgba(0, 0, 0, 0.4);
+}
+
 :root {
-  /* ---- color tokens (既存の配色を単一ソース化) ---- */
+  /* ---- color tokens (light をデフォルトに) ---- */
   --bg: #{$background-color};
   --surface: #ffffff;
   --surface-2: #f3f3ec;
@@ -15,10 +38,6 @@
   /* ---- glass (header). ダークで背景が変わっても破綻しないようトークン化 ---- */
   --glass-bg: rgba(250, 250, 245, 0.72);
   --glass-border: rgba(51, 51, 51, 0.14);
-
-  /* ---- section rhythm (①: セクションの面/緩急に使う) ---- */
-  --section-gap: clamp(3rem, 2rem + 5vw, 6rem);
-  --band-pad-block: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
 
   /* ---- radius ---- */
   --radius-sm: 8px;
@@ -50,28 +69,19 @@
   text-rendering: optimizeLegibility;
 }
 
-/* ---- dark theme（OSの配色設定に追従） ---- */
+/* ---- theme: 明示選択（トグル）が最優先 ---- */
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  @include theme-dark;
+}
+
+/* ---- theme: 明示選択がなければ OS の配色設定に追従 ---- */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #121210;
-    --surface: #1a1a17;
-    --surface-2: #24241f;
-    --text: #ededea;
-    --text-muted: #9c9c93;
-    --accent: #4da3f5;
-    --accent-strong: #82bdf8;
-    --accent-soft: rgba(77, 163, 245, 0.16);
-    --border: rgba(255, 255, 255, 0.12);
-    --border-strong: rgba(255, 255, 255, 0.72);
-    --row-stripe: rgba(255, 255, 255, 0.03);
-
-    --glass-bg: rgba(18, 18, 16, 0.72);
-    --glass-border: rgba(255, 255, 255, 0.1);
-
-    /* ダークでは影が沈むので、少し深めに */
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45), 0 8px 28px rgba(0, 0, 0, 0.35);
-    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5), 0 18px 56px rgba(0, 0, 0, 0.4);
+  :root:not([data-theme]) {
+    @include theme-dark;
   }
 }
 

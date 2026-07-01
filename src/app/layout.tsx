@@ -30,6 +30,12 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${poppins.variable} ${geistMono.variable}`}>
+        {/* テーマ復元: 描画前に保存済みの選択を html へ反映し、チラつき(FOUC)を防ぐ */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}`,
+          }}
+        />
         <div className="pageShell">
           <Header />
           <main className="layoutMain">{children}</main>
