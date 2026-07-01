@@ -1,7 +1,6 @@
 import styles from './index.module.scss';
 import IconImg from '../../../../public/default/icon.webp';
 import MenuList from './menuList';
-import ThemeToggle from './themeToggle';
 import { HANDLENAME } from '@/constants/myname';
 import { Icons } from './icons';
 import Link from 'next/link';
@@ -18,7 +17,6 @@ const Header = () => {
       <div className={styles.icons}>
         <Icons />
       </div>
-      <ThemeToggle />
       <div>
         <MenuList />
       </div>
