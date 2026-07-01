@@ -1,0 +1,15 @@
+.section {
+  // 通常セクションは透明パススルー（既存の余白挙動を尊重し、回帰を出さない）
+
+  // バンド: 面(surface-2)で囲みリズムと深みを出す（①セクションの緩急）
+  &[data-band] {
+    --title-mt: 0; // パネル内はタイトル上マージンを殺し、パネル padding に任せる
+    margin-block: var(--section-gap);
+    padding-block: var(--band-pad-block);
+    padding-inline: clamp(1rem, 0.4rem + 3vw, 3rem);
+    background: var(--surface-2);
+    border: $px-1 solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+}
