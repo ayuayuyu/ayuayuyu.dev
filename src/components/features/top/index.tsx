@@ -1,5 +1,4 @@
 import TopLayout from './layout';
-import Section from '@/components/section';
 import AboutMeTop from './about';
 import MainSkills from './skills';
 import Products from './products';
@@ -10,13 +9,9 @@ const Top = () => {
   return (
     <TopLayout>
       <AboutMeTop />
-      <Section band>
-        <MainSkills />
-      </Section>
+      <MainSkills />
       <Products />
-      <Section band>
-        <Awards />
-      </Section>
+      <Awards />
       <Project />
     </TopLayout>
   );

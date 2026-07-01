@@ -1,4 +1,3 @@
 .container {
-  // バンド(パネル)化したため上境界線は不要（二重線回避）。SkillLayout 側の区切りに任せる。
-  width: 100%;
+  border-top: $px-1 solid var(--border);
 }
