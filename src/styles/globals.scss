@@ -55,8 +55,9 @@
   --dur-fast: 0.15s;
   --dur: 0.25s;
 
+  /* 英字は Poppins、日本語は Tsukimi Rounded（未ロード時のみ OS 標準にフォールバック） */
   font-family:
-    var(--font-poppins), 'Poppins', system-ui, -apple-system,
+    var(--font-poppins), var(--font-tsukimi), system-ui, -apple-system,
     'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', Meiryo,
     sans-serif;
   line-height: 1.5;

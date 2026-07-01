@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Poppins, Geist_Mono } from 'next/font/google';
+import { Poppins, Geist_Mono, Tsukimi_Rounded } from 'next/font/google';
 import '../styles/globals.scss';
 import Header from '@/components/base/header';
 import Footer from '@/components/base/footer';
@@ -18,6 +18,14 @@ const geistMono = Geist_Mono({
   display: 'swap',
 });
 
+// 日本語フォント。CJK は巨大なので preload は無効化し、swap で待たせない
+const tsukimiRounded = Tsukimi_Rounded({
+  variable: '--font-tsukimi',
+  weight: ['400', '500', '700'],
+  display: 'swap',
+  preload: false,
+});
+
 export const metadata: Metadata = {
   title: 'ayuayuyu Portfolio',
   description: 'ayuayuyuのポートフォリオサイト - 気ままに過ごしている大学生',
@@ -29,10 +37,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // data-theme は描画前のインラインスクリプトで意図的に付与するため、
-    // html 要素の hydration 属性不一致警告を抑制する（テーマFOUC対策の定石）
-    <html lang="ja" suppressHydrationWarning>
-      <body className={`${poppins.variable} ${geistMono.variable}`}>
+    // フォントの CSS 変数は :root(html) で font-family から参照するため、
+    // next/font のクラスは html 側に付与する（body に付けると :root から参照できない）。
+    // data-theme は描画前スクリプトで意図的に付与するため suppressHydrationWarning。
+    <html
+      lang="ja"
+      suppressHydrationWarning
+      className={`${poppins.variable} ${geistMono.variable} ${tsukimiRounded.variable}`}
+    >
+      <body>
         {/* テーマ復元: 描画前に保存済みの選択を html へ反映し、チラつき(FOUC)を防ぐ */}
         <script
           dangerouslySetInnerHTML={{
