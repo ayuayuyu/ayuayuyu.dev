@@ -1,0 +1,36 @@
+.toggle {
+  position: fixed;
+  right: clamp(1rem, 0.5rem + 2vw, 2rem);
+  bottom: clamp(1rem, 0.5rem + 2vw, 2rem);
+  z-index: 1000;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: $px-48;
+  height: $px-48;
+  border: $px-1 solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition:
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+
+  &:hover {
+    background: var(--surface-2);
+    color: var(--accent);
+    border-color: var(--accent-soft);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  svg {
+    display: block;
+  }
+}

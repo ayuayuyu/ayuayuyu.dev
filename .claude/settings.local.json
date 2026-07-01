@@ -11,7 +11,16 @@
       "Bash(do)",
       "Bash(echo \"=== $f ===\")",
       "Bash(git show:*)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(node /tmp/shot.mjs)",
+      "Bash(echo \"exit: $?\")",
+      "Read(//private/tmp/**)",
+      "Bash(pkill -f \"serve@latest\")",
+      "Bash(pkill -f \"remote-debugging-port=9333\")",
+      "Bash(lsof -ti:5055)",
+      "Bash(git rm *)",
+      "Bash(git add *)",
+      "Bash(git mv *)"
     ]
   }
 }

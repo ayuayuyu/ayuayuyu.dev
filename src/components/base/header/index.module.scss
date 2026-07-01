@@ -2,30 +2,44 @@
   height: $px-70;
   padding-inline: $px-40;
   display: flex;
-  gap: $px-10;
+  gap: $px-12;
   align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba(223, 223, 223, 0.5);
-  backdrop-filter: blur($px-2);
+  background-color: var(--glass-bg);
+  backdrop-filter: blur($px-14) saturate(180%);
+  -webkit-backdrop-filter: blur($px-14) saturate(180%);
+  border-bottom: $px-1 solid var(--glass-border);
   z-index: 1000;
   container-type: inline-size;
+
+  @container (max-width: #{$px-600}) {
+    padding-inline: $px-20;
+  }
 
   .icon {
     width: $px-60;
     height: $px-60;
     border-radius: 50%;
+    object-fit: cover;
+    transition: transform var(--dur) var(--ease);
     @container (max-width: #{$px-600}) {
       width: $px-48;
       height: $px-48;
     }
+    &:hover {
+      transform: scale(1.06);
+    }
   }
   .name {
-    font-size: $px-32;
+    font-size: 1.6rem;
+    font-weight: $font-weight-semi-bold;
+    letter-spacing: -0.01em;
+    color: var(--text);
     @container (max-width: #{$px-600}) {
-      font-size: $px-16;
+      font-size: 1.05rem;
     }
   }
   .icons {

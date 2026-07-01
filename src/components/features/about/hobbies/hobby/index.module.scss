@@ -1,18 +1,34 @@
 .card {
   width: $px-310;
-  border: $px-1 solid $color-black;
+  border: $px-1 solid var(--border);
+  border-radius: var(--radius-md);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-block: $px-15;
+  transition:
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
   .title {
     width: $px-300;
-    font-size: $px-32;
+    font-size: 1.5rem;
+    font-weight: $font-weight-medium;
     text-align: center;
-    border-bottom: $px-1 solid $color-black;
+    padding-bottom: $px-10;
+    border-bottom: $px-1 solid var(--border);
   }
   .description {
     width: $px-300;
     text-align: center;
+    padding-top: $px-10;
+    color: var(--text-muted);
+    line-height: 1.6;
   }
 }

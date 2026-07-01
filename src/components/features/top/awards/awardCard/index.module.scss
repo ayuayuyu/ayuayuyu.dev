@@ -1,14 +1,17 @@
 .awardCard {
   gap: $px-20;
   display: flex;
-  border-bottom: $px-1_5 solid $color-black;
-  padding-top: $px-10;
-  padding-bottom: $px-10;
+  border-bottom: $px-1 solid var(--border);
+  padding: $px-10;
+  transition: background-color var(--dur) var(--ease);
   @container (max-width: #{$px-550}) {
     gap: $px-10;
   }
   @container (max-width: #{$px-420}) {
     gap: $px-5;
+  }
+  &:hover {
+    background-color: var(--surface-2);
   }
   .awardInfo {
     display: flex;
@@ -18,18 +21,16 @@
     .award {
       &::before {
         content: '[';
-        width: $px-3;
-        height: $px-3;
+        color: var(--accent);
         font-weight: $font-weight-medium;
       }
 
       &::after {
         content: ']';
-        width: $px-3;
-        height: $px-3;
+        color: var(--accent);
         font-weight: $font-weight-medium;
       }
-      font-size: $px-32;
+      font-size: 2rem;
       font-weight: $font-weight-medium;
       @container (max-width: #{$px-550}) {
         font-size: $px-24;
@@ -39,7 +40,8 @@
       }
     }
     .date {
-      font-size: $px-16;
+      font-size: 1rem;
+      color: var(--text-muted);
       @container (max-width: #{$px-550}) {
         font-size: $px-12;
       }
@@ -50,8 +52,9 @@
     flex-direction: column;
     align-items: flex-start;
     .hackathonName {
-      font-size: $px-32;
+      font-size: 2rem;
       font-weight: $font-weight-medium;
+      letter-spacing: -0.01em;
       @container (max-width: #{$px-550}) {
         font-size: $px-24;
       }
@@ -60,7 +63,8 @@
       }
     }
     .title {
-      font-size: $px-24;
+      font-size: 1.5rem;
+      color: var(--text-muted);
       @container (max-width: #{$px-550}) {
         font-size: $px-16;
       }

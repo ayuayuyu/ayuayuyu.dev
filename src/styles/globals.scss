@@ -1,9 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+// ダークトークンを一箇所に定義し、手動トグル([data-theme])と OS 追従の両方から使う
+@mixin theme-dark {
+  --bg: #121210;
+  --surface: #1a1a17;
+  --surface-2: #24241f;
+  --text: #ededea;
+  --text-muted: #9c9c93;
+  --accent: #4da3f5;
+  --accent-strong: #82bdf8;
+  --accent-soft: rgba(77, 163, 245, 0.16);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.72);
+  --row-stripe: rgba(255, 255, 255, 0.03);
+
+  --glass-bg: rgba(18, 18, 16, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  // ダークでは影が沈むので少し深めに
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45), 0 8px 28px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5), 0 18px 56px rgba(0, 0, 0, 0.4);
+}
 
 :root {
-  font-family: 'Poppins', sans-serif;
+  /* ---- color tokens (light をデフォルトに) ---- */
+  --bg: #{$background-color};
+  --surface: #ffffff;
+  --surface-2: #f3f3ec;
+  --text: #{$color-black};
+  --text-muted: #{$color-gray};
+  --accent: #{$color-blue};
+  --accent-strong: #0a63b0;
+  --accent-soft: rgba(9, 123, 223, 0.1);
+  --border: rgba(51, 51, 51, 0.14);
+  --border-strong: rgba(51, 51, 51, 0.85);
+  --row-stripe: rgba(0, 0, 0, 0.02);
+
+  /* ---- glass (header). ダークで背景が変わっても破綻しないようトークン化 ---- */
+  --glass-bg: rgba(250, 250, 245, 0.72);
+  --glass-border: rgba(51, 51, 51, 0.14);
+
+  /* ---- radius ---- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+
+  /* ---- elevation (soft / layered) ---- */
+  --shadow-sm: 0 1px 2px rgba(17, 17, 26, 0.04), 0 2px 8px rgba(17, 17, 26, 0.04);
+  --shadow-md: 0 4px 14px rgba(17, 17, 26, 0.06), 0 8px 28px rgba(17, 17, 26, 0.05);
+  --shadow-lg: 0 10px 30px rgba(17, 17, 26, 0.08), 0 18px 56px rgba(17, 17, 26, 0.06);
+
+  /* ---- motion ---- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 0.15s;
+  --dur: 0.25s;
+
+  /* 英字は Poppins、日本語は Tsukimi Rounded（未ロード時のみ OS 標準にフォールバック） */
+  font-family:
+    var(--font-poppins), var(--font-tsukimi), system-ui, -apple-system,
+    'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', Meiryo,
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  color: var(--text);
+  color-scheme: light dark;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- theme: 明示選択（トグル）が最優先 ---- */
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  @include theme-dark;
+}
+
+/* ---- theme: 明示選択がなければ OS の配色設定に追従 ---- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    @include theme-dark;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  /* fixed header(高さ70px)分のアンカーオフセット */
+  scroll-padding-top: $px-80;
 }
 
 * {
@@ -15,7 +101,7 @@
 
 body {
   min-height: 100vh;
-  background-color: $background-color;
+  background-color: var(--bg);
 }
 
 .pageShell {
@@ -40,7 +126,31 @@ a {
 }
 p {
   margin: 0;
-  color: #000;
+  color: var(--text);
+}
+
+/* ---- accessibility ---- */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @media print {

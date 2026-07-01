@@ -1,13 +1,14 @@
 .tag {
   height: $px-25;
-  padding: 0 $px-10;
-  background-color: #fff;
-  display: inline-block;
-  display: flex;
+  padding: 0 $px-12;
+  background-color: var(--surface);
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  border-radius: $px-30;
-  border: $color-black $px-1 solid;
-  font-size: $px-16;
+  border-radius: var(--radius-pill);
+  border: $px-1 solid var(--border);
+  font-size: 0.875rem;
   font-weight: $font-weight-medium;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
 }

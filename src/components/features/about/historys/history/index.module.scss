@@ -12,13 +12,16 @@
     .point {
       width: $px-52;
       height: $px-52;
-      border: $px-3 solid $color-blue;
-      background-color: $background-color;
+      border: $px-3 solid var(--accent);
+      background-color: var(--bg);
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      font-size: $px-16;
+      font-size: 1rem;
+      font-weight: $font-weight-medium;
+      color: var(--accent);
+      box-shadow: var(--shadow-sm);
       @container (max-width: #{$px-400}) {
         width: $px-40;
         height: $px-40;
@@ -28,7 +31,7 @@
     .line {
       height: $px-300;
       width: $px-5;
-      background-color: $color-blue;
+      background-color: var(--accent);
       position: absolute;
       z-index: -1;
       @container (max-width: #{$px-400}) {
@@ -38,15 +41,21 @@
     }
   }
   .historyItem {
-    border: $px-1 solid $color-black;
+    border: $px-1 solid var(--border);
+    border-radius: var(--radius-md);
+    background-color: var(--surface);
+    box-shadow: var(--shadow-sm);
     width: $px-350;
     height: $px-175;
     overflow: hidden;
     padding-left: $px-20;
     padding-right: $px-20;
-    transition: transform 0.2s;
+    transition:
+      transform var(--dur) var(--ease),
+      box-shadow var(--dur) var(--ease);
     &:hover {
-      transform: scale(1.02);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
     }
     @container (max-width: #{$px-400}) {
       width: $px-225;
@@ -54,7 +63,8 @@
     }
     .subTitle {
       text-align: left;
-      font-size: $px-25;
+      font-size: 1.5rem;
+      font-weight: $font-weight-medium;
       padding-top: $px-10;
       margin: 0;
       @container (max-width: #{$px-400}) {
@@ -64,11 +74,13 @@
     }
     .navLink {
       text-decoration: none;
-      color: $color-blue;
+      color: var(--accent);
     }
     .description {
       padding-top: $px-10;
       white-space: pre-wrap;
+      line-height: 1.6;
+      color: var(--text-muted);
       @container (max-width: #{$px-400}) {
         font-size: $px-13;
         padding-top: $px-5;

@@ -1,16 +1,12 @@
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { FlatCompat } from '@eslint/eslintrc';
+import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
+// Next.js 16 以降、eslint-config-next はネイティブ flat config 配列を提供する。
+// core-web-vitals は内部で next(base) + next/typescript も取り込むため、これ1つで足りる。
 const eslintConfig = [
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  {
+    ignores: ['.next/**', 'out/**', 'next-env.d.ts'],
+  },
+  ...nextCoreWebVitals,
   {
     rules: {
       '@next/next/no-img-element': 'off',
