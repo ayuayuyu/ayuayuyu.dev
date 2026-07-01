@@ -7,6 +7,19 @@
   font-size: clamp(2.5rem, 1.8rem + 2.2vw, 3rem);
   letter-spacing: -0.02em;
   color: var(--accent);
+
+  // 見出しの単調さを緩和するアクセントバー（①）
+  &::after {
+    content: '';
+    display: block;
+    width: $px-48;
+    height: $px-3;
+    margin: $px-14 auto 0;
+    background: var(--accent);
+    border-radius: var(--radius-pill);
+    opacity: 0.85;
+  }
+
   @container (max-width: #{$px-600}) {
     margin-top: 25%;
   }
