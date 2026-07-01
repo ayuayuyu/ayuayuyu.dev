@@ -133,7 +133,7 @@
     }
 
     tr:nth-child(odd) td {
-      background-color: rgba(0, 0, 0, 0.02);
+      background-color: var(--row-stripe);
     }
   }
 }
