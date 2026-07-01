@@ -4,11 +4,9 @@
   text-align: center;
   font-weight: $font-weight-semi-bold;
   padding-bottom: 5%;
-  font-size: $px-48;
-  color: $color-blue;
-  @container (max-width: #{$px-400}) {
-    font-size: $px-40;
-  }
+  font-size: clamp(2.5rem, 1.8rem + 2.2vw, 3rem);
+  letter-spacing: -0.02em;
+  color: var(--accent);
   @container (max-width: #{$px-600}) {
     margin-top: 25%;
   }

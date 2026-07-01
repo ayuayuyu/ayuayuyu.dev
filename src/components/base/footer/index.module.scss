@@ -1,13 +1,14 @@
 .footer {
-  margin-block-start: $px-35;
-  height: $px-40;
+  margin-block-start: $px-60;
+  padding-block: $px-25;
+  border-top: $px-1 solid var(--border);
   text-align: center;
 
   p {
-    margin-block-end: $px-5;
+    margin: 0 auto;
     max-width: 80%;
-    width: $px-400;
-    display: inline-block;
-    border-bottom: solid $px-2;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
   }
 }

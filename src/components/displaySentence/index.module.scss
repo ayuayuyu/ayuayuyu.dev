@@ -1,5 +1,6 @@
 .sentence {
+  line-height: 1.8;
   @container (max-width: #{$px-400}) {
-    font-size: $px-16;
+    font-size: 1rem;
   }
 }
