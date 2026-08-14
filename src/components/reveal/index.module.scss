@@ -1,0 +1,15 @@
+// data-reveal が付かない = JS 未実行 or reduced-motion。そのときは素のまま見せる
+.reveal {
+  &[data-reveal='hidden'] {
+    opacity: 0;
+    transform: translateY($px-24);
+  }
+
+  &[data-reveal='shown'] {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.55s var(--ease),
+      transform 0.55s var(--ease);
+  }
+}
