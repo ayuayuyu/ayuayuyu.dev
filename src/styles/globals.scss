@@ -15,6 +15,10 @@
   --glass-bg: rgba(18, 18, 16, 0.72);
   --glass-border: rgba(255, 255, 255, 0.1);
 
+  // 背景の幾何学レイヤー。暗い地の方が線が沈むので少し強めに出す
+  --geo-grid: rgba(255, 255, 255, 0.05);
+  --geo-opacity: 0.7;
+
   // ダークでは影が沈むので少し深めに
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45), 0 8px 28px rgba(0, 0, 0, 0.35);
@@ -38,6 +42,10 @@
   /* ---- glass (header). ダークで背景が変わっても破綻しないようトークン化 ---- */
   --glass-bg: rgba(250, 250, 245, 0.72);
   --glass-border: rgba(51, 51, 51, 0.14);
+
+  /* ---- 背景の幾何学レイヤー（GeometricBackground） ---- */
+  --geo-grid: rgba(51, 51, 51, 0.045);
+  --geo-opacity: 0.55;
 
   /* ---- radius ---- */
   --radius-sm: 8px;
@@ -114,6 +122,9 @@ body {
   flex-direction: column;
   word-wrap: break-word;
   container-type: inline-size;
+  /* 背景レイヤー(z-index:0)より必ず手前に本文を置く */
+  position: relative;
+  z-index: 1;
 }
 
 .layoutMain {

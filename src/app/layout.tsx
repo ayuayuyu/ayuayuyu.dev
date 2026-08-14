@@ -4,6 +4,7 @@ import '../styles/globals.scss';
 import Header from '@/components/base/header';
 import Footer from '@/components/base/footer';
 import ThemeToggle from '@/components/base/themeToggle';
+import GeometricBackground from '@/components/base/geometricBackground';
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -52,6 +53,8 @@ export default function RootLayout({
             __html: `try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}`,
           }}
         />
+        {/* 動く幾何学背景。pageShell より前に置いて奥に敷く */}
+        <GeometricBackground />
         <div className="pageShell">
           <Header />
           <main className="layoutMain">{children}</main>
