@@ -1139,3 +1139,58 @@ export function Zenn(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function Hamburger(props: SVGProps<SVGSVGElement>) {
+  return (
+    // viewBox = 絵の実バウンディングボックス（ストローク込み）。
+    //   x: 4.4〜19.6（レタスの stroke 1.2 が最外）/ y: 4.0〜17.7（バンズの stroke 1 が最外）
+    // こうしておけば preserveAspectRatio のデフォルト(xMidYMid meet)が
+    // CSS で与えた箱の中央に絵を収めてくれるので、位置合わせに手計算が要らない。
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={24}
+      height={24}
+      viewBox="4.4 4 15.2 13.7"
+      fill="none"
+      {...props}
+    >
+      {/* 上のバンズ */}
+      <path
+        d="M5 10C5 6.7 8.1 4.5 12 4.5C15.9 4.5 19 6.7 19 10H5Z"
+        fill="#F4C16E"
+        stroke="#8B5A2B"
+        strokeWidth={1}
+      />
+
+      {/* レタス */}
+      <path
+        d="M5 10.7C6 10.2 7 11.2 8 10.7C9 10.2 10 11.2 11 10.7C12 10.2 13 11.2 14 10.7C15 10.2 16 11.2 17 10.7C18 10.2 19 11.2 19 10.7"
+        stroke="#4CAF50"
+        strokeWidth={1.2}
+        fill="none"
+        strokeLinecap="round"
+      />
+
+      {/* パティ */}
+      <rect x={5.5} y={11.5} width={13} height={2} rx={1} fill="#6D3D1F" />
+
+      {/* 下のバンズ */}
+      <rect
+        x={5}
+        y={14.2}
+        width={14}
+        height={3}
+        rx={1.5}
+        fill="#F4C16E"
+        stroke="#8B5A2B"
+        strokeWidth={1}
+      />
+
+      {/* ゴマ */}
+      <circle cx={8} cy={7.2} r={0.3} fill="#FFF8DC" />
+      <circle cx={10.5} cy={6.3} r={0.3} fill="#FFF8DC" />
+      <circle cx={13} cy={7.1} r={0.3} fill="#FFF8DC" />
+      <circle cx={15.5} cy={6.5} r={0.3} fill="#FFF8DC" />
+    </svg>
+  );
+}

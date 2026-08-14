@@ -36,6 +36,7 @@ import {
   X,
   Qiita,
   Zenn,
+  Hamburger,
 } from './svgIcon';
 
 export const MAINSKILLS = [
@@ -156,4 +157,8 @@ export const LINKICON = [
   { component: X, label: 'X', width: '24', height: '24' },
   { component: Qiita, label: 'Qiita', width: '24', height: '24' },
   { component: Zenn, label: 'Zenn', width: '24', height: '24' },
+];
+
+export const HAMBURGERICON = [
+  { component: Hamburger, label: 'Hamburger', width: '48', height: '48' },
 ];
