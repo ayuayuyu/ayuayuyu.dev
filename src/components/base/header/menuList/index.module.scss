@@ -1,24 +1,33 @@
+// 箱は GitHub アイコン($px-48)より一回り大きい $px-54。
+// SVG を箱からはみ出させて大きくすると隣との間隔を食うので、箱ごと大きくする。
+// 高さが違っても .actions の align-items: center で水平は揃う。
 .container {
   position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: $px-64;
-  height: $px-64;
+  width: $px-54;
+  height: $px-54;
+
+  @container (max-width: #{$px-600}) {
+    width: $px-48;
+    height: $px-48;
+  }
 
   .potato_warp {
     img {
       width: $px-12;
-      height: $px-64;
+      height: $px-45;
       @container (max-width: #{$px-600}) {
-        height: $px-48;
+        width: $px-10;
+        height: $px-40;
       }
     }
   }
 
   .burger_warp {
-    img {
+    // SVG は width/height 属性を持つので、CSS 側で上書きして responsive にする
+    .iconContainer svg {
       width: $px-54;
       height: $px-54;
       @container (max-width: #{$px-600}) {
@@ -31,12 +40,17 @@
 
 .button {
   position: relative;
-  width: $px-64;
-  height: $px-64;
+  width: $px-54;
+  height: $px-54;
   background: transparent;
   border: none;
   cursor: pointer;
   outline: none;
+
+  @container (max-width: #{$px-600}) {
+    width: $px-48;
+    height: $px-48;
+  }
 }
 
 .iconWrapper {
@@ -49,7 +63,11 @@
 
 .menu {
   position: absolute;
-  top: $px-70;
+  // ボタンはヘッダー(70px)の中央にあるので、100% + 16px でヘッダー下端の少し下に出る
+  // （54px 箱なら上端 8px → 78px、48px 箱なら上端 11px → 75px。どちらも下端 70px の下）
+  top: calc(100% + #{$px-16});
+  // 画面右端のボタンから開くので、右揃えにしないと横にはみ出す
+  right: 0;
   display: flex;
   flex-direction: column;
   background: var(--surface);

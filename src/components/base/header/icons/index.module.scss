@@ -1,5 +1,23 @@
 .container {
-  @container (max-width: #{$px-500}) {
-    size: $px-35;
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  // ハンバーガーボタンと同じ箱サイズにして水平を揃える
+  width: $px-48;
+  height: $px-48;
+  border-radius: var(--radius-pill);
+  color: var(--text);
+  transition:
+    color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease);
+
+  &:hover {
+    color: var(--accent);
+    background-color: var(--surface-2);
   }
 }
