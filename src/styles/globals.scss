@@ -129,6 +129,33 @@ body {
 
 .layoutMain {
   flex: 1;
+  /* fixed ヘッダー(70px)に本文が潜り込まないための逃げ */
+  padding-block-start: $px-70;
+
+  /* スキップリンクの着地点。フォーカスリングは出さない */
+  &:focus {
+    outline: none;
+  }
+}
+
+/* ---- スキップリンク: フォーカスされたときだけ画面に出す ---- */
+.skipLink {
+  position: fixed;
+  top: $px-10;
+  left: $px-10;
+  z-index: 1200;
+  padding: $px-10 $px-16;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  border: $px-1 solid var(--border);
+  box-shadow: var(--shadow-md);
+  transform: translateY(calc(-100% - #{$px-20}));
+  transition: transform var(--dur) var(--ease);
+
+  &:focus-visible {
+    transform: translateY(0);
+  }
 }
 
 a {

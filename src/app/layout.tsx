@@ -53,11 +53,23 @@ export default function RootLayout({
             __html: `try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}`,
           }}
         />
+        {/* キーボード操作でヘッダーを読み飛ばして本文へ */}
+        <a href="#main" className="skipLink">
+          本文へスキップ
+        </a>
         {/* 動く幾何学背景。pageShell より前に置いて奥に敷く */}
         <GeometricBackground />
+        {/*
+          Header は pageShell の外に置く。pageShell は container-type: inline-size を
+          持っており、レイアウト封じ込めによって内側の position: fixed が
+          ビューポート基準にならない（＝スクロールで追従しなくなる）ため。
+        */}
+        <Header />
         <div className="pageShell">
-          <Header />
-          <main className="layoutMain">{children}</main>
+          {/* スキップリンクの着地点にするため tabIndex={-1} */}
+          <main id="main" tabIndex={-1} className="layoutMain">
+            {children}
+          </main>
           <Footer />
         </div>
         {/* 画面右下の固定フローティングトグル（pageShell 外＝ビューポート基準） */}
