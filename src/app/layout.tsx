@@ -4,6 +4,8 @@ import '../styles/globals.scss';
 import Header from '@/components/base/header';
 import Footer from '@/components/base/footer';
 import ThemeToggle from '@/components/base/themeToggle';
+import BackToTop from '@/components/base/backToTop';
+import ScrollProgress from '@/components/base/scrollProgress';
 import GeometricBackground from '@/components/base/geometricBackground';
 
 const poppins = Poppins({
@@ -59,6 +61,7 @@ export default function RootLayout({
         </a>
         {/* 動く幾何学背景。pageShell より前に置いて奥に敷く */}
         <GeometricBackground />
+        <ScrollProgress />
         {/*
           Header は pageShell の外に置く。pageShell は container-type: inline-size を
           持っており、レイアウト封じ込めによって内側の position: fixed が
@@ -72,8 +75,11 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
-        {/* 画面右下の固定フローティングトグル（pageShell 外＝ビューポート基準） */}
-        <ThemeToggle />
+        {/* 画面右下の固定ドック（pageShell 外＝ビューポート基準） */}
+        <div className="floatingDock">
+          <BackToTop />
+          <ThemeToggle />
+        </div>
       </body>
     </html>
   );

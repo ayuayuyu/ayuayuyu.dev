@@ -1,0 +1,15 @@
+.button {
+  @include floating-button;
+
+  &[data-visible='false'] {
+    opacity: 0;
+    // visibility も落とさないと非表示のままクリックできてしまう
+    visibility: hidden;
+    transform: translateY($px-8);
+  }
+
+  &[data-visible='true'] {
+    opacity: 1;
+    visibility: visible;
+  }
+}

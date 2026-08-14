@@ -138,6 +138,17 @@ body {
   }
 }
 
+/* ---- 画面右下の固定ドック（トップへ戻る / テーマ切替） ---- */
+.floatingDock {
+  position: fixed;
+  right: clamp(1rem, 0.5rem + 2vw, 2rem);
+  bottom: clamp(1rem, 0.5rem + 2vw, 2rem);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: $px-10;
+}
+
 /* ---- スキップリンク: フォーカスされたときだけ画面に出す ---- */
 .skipLink {
   position: fixed;
