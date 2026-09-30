@@ -1,0 +1,221 @@
+// 列幅は history/index.module.scss と揃える。レールは node 列の中央を通る
+$date-col: $px-96;
+$node-col: $px-32;
+$node-col-sm: $px-28;
+$badge: $px-28;
+$badge-sm: $px-26;
+
+@keyframes chapter-in {
+  from {
+    opacity: 0;
+    transform: translateY($px-12);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.timeline {
+  position: relative;
+  max-width: $px-750;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: $px-40;
+
+  // 章をまたいで 1 本のレールを引く。末尾はフェードさせて「いまも続いている」ことを示す
+  &::before {
+    content: '';
+    position: absolute;
+    top: $badge * 0.5;
+    bottom: 0;
+    left: $date-col + $node-col * 0.5 - $px-1;
+    width: $px-2;
+    border-radius: var(--radius-pill);
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--accent) 24%, transparent) 90%,
+      transparent
+    );
+  }
+
+  @container (max-width: #{$px-500}) {
+    gap: $px-32;
+
+    &::before {
+      top: $badge-sm * 0.5;
+      left: $node-col-sm * 0.5 - $px-1;
+    }
+  }
+}
+
+.chapter {
+  display: flex;
+  flex-direction: column;
+  gap: $px-20;
+
+  @container (max-width: #{$px-500}) {
+    gap: $px-16;
+  }
+}
+
+.chapterHeading {
+  // 絶対配置のレール（::before）より前面に出す
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: $date-col $node-col minmax(0, 1fr);
+  grid-template-areas: '. node text';
+  align-items: center;
+  animation: chapter-in 0.5s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+
+  @container (max-width: #{$px-500}) {
+    grid-template-columns: $node-col-sm minmax(0, 1fr);
+    grid-template-areas: 'node text';
+    column-gap: $px-12;
+  }
+}
+
+.chapterNumber {
+  grid-area: node;
+  justify-self: center;
+  width: $badge;
+  height: $badge;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-pill);
+  background-color: var(--accent-strong);
+  // bg 色のリングでレールを切り、線上のバッジに見せる
+  box-shadow: 0 0 0 $px-5 var(--bg);
+  color: var(--bg);
+  font-size: $px-12;
+  font-weight: $font-weight-semi-bold;
+  font-variant-numeric: tabular-nums;
+
+  @container (max-width: #{$px-500}) {
+    width: $badge-sm;
+    height: $badge-sm;
+    font-size: $px-11;
+  }
+}
+
+.chapterText {
+  grid-area: text;
+  display: flex;
+  align-items: baseline;
+  gap: $px-12;
+  padding-left: $px-16;
+
+  @container (max-width: #{$px-500}) {
+    gap: $px-10;
+    padding-left: 0;
+  }
+}
+
+.chapterTitle {
+  font-size: 1.25rem;
+  line-height: $px-28;
+  font-weight: $font-weight-semi-bold;
+  color: var(--text);
+
+  @container (max-width: #{$px-500}) {
+    font-size: 1.0625rem;
+  }
+}
+
+.chapterLabel {
+  font-size: $px-11;
+  font-weight: $font-weight-semi-bold;
+  letter-spacing: 0.14em;
+  color: var(--accent-strong);
+
+  @container (max-width: #{$px-500}) {
+    font-size: $px-10;
+  }
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: $px-20;
+
+  @container (max-width: #{$px-500}) {
+    gap: $px-16;
+  }
+}
+
+/* ---- 章の中のグループ（例: サマー / 長期インターン） ---- */
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: $px-14;
+
+  @container (max-width: #{$px-500}) {
+    gap: $px-12;
+  }
+}
+
+.groupHeading {
+  // 絶対配置のレール（::before）より前面に出す
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: $date-col $node-col minmax(0, 1fr);
+  grid-template-areas: '. node text';
+  align-items: center;
+  animation: chapter-in 0.5s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+
+  // レール上のひし形。章の番号バッジ・項目の丸ノードと見分けられるようにする
+  &::before {
+    content: '';
+    grid-area: node;
+    justify-self: center;
+    width: $px-8;
+    height: $px-8;
+    transform: rotate(45deg);
+    background-color: var(--accent-strong);
+    box-shadow: 0 0 0 $px-3 var(--bg);
+  }
+
+  @container (max-width: #{$px-500}) {
+    grid-template-columns: $node-col-sm minmax(0, 1fr);
+    grid-template-areas: 'node text';
+    column-gap: $px-12;
+  }
+}
+
+.groupText {
+  grid-area: text;
+  display: flex;
+  align-items: baseline;
+  gap: $px-10;
+  padding-left: $px-16;
+
+  @container (max-width: #{$px-500}) {
+    gap: $px-8;
+    padding-left: 0;
+  }
+}
+
+.groupTitle {
+  font-size: $px-15;
+  line-height: $px-22;
+  font-weight: $font-weight-semi-bold;
+  color: var(--text);
+
+  @container (max-width: #{$px-500}) {
+    font-size: $px-14;
+  }
+}
+
+.groupLabel {
+  font-size: $px-10;
+  font-weight: $font-weight-semi-bold;
+  letter-spacing: 0.14em;
+  color: var(--accent-strong);
+}
