@@ -1,0 +1,33 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+// ブループリント風の方眼。動かす必要はないので CSS の静的テクスチャで済ませる
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--geo-grid) $px-1, transparent $px-1),
+    linear-gradient(to bottom, var(--geo-grid) $px-1, transparent $px-1);
+  background-size: $px-64 $px-64;
+
+  // 本文が乗る中央だけ薄くして可読性を守る
+  $fade: radial-gradient(
+    ellipse 70% 60% at 50% 45%,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 1) 80%
+  );
+  -webkit-mask-image: $fade;
+  mask-image: $fade;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: var(--geo-opacity);
+}

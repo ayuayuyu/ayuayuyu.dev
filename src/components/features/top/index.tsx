@@ -1,4 +1,5 @@
 import TopLayout from './layout';
+import Reveal from '@/components/reveal';
 import AboutMeTop from './about';
 import MainSkills from './skills';
 import Products from './products';
@@ -8,11 +9,21 @@ import Project from './projects';
 const Top = () => {
   return (
     <TopLayout>
-      <AboutMeTop />
-      <MainSkills />
-      <Products />
-      <Awards />
-      <Project />
+      <Reveal>
+        <AboutMeTop />
+      </Reveal>
+      <Reveal>
+        <MainSkills />
+      </Reveal>
+      <Reveal>
+        <Products />
+      </Reveal>
+      <Reveal>
+        <Awards />
+      </Reveal>
+      <Reveal>
+        <Project />
+      </Reveal>
     </TopLayout>
   );
 };

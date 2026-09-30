@@ -1,5 +1,5 @@
 import type { ComponentType, SVGProps } from 'react';
-import { Gamepad, Tv } from './svgIcon';
+import { Flame, Gamepad, Tv } from './svgIcon';
 
 export type Hobby = {
   id: number;
@@ -16,8 +16,8 @@ const HOBBIES: Hobby[] = [
   {
     id: 0,
     icon: Tv,
-    title: 'Anime',
-    subtitle: 'アニメ',
+    title: 'アニメ',
+    subtitle: 'Anime',
     tags: ['恋愛系', '異世界系', 'バトル系'],
     highlight: { label: 'BEST ERA', value: '2016 — 2019' },
     description:
@@ -26,12 +26,22 @@ const HOBBIES: Hobby[] = [
   {
     id: 1,
     icon: Gamepad,
-    title: 'Game',
-    subtitle: 'ゲーム',
+    title: 'ゲーム',
+    subtitle: 'Game',
     tags: ['モンハン4G', 'ワールド / アイスボーン', 'RPG'],
     highlight: { label: 'FAVORITE', value: 'モンハン' },
     description:
       'モンハンというゲームが特に好きでモンハン4Gやモンハンワールド/アイスボーンは特にハマり中学生の青春を全て捧げたと言っても過言ではありません。RPGゲームなども好きです。',
+  },
+  {
+    id: 2,
+    icon: Flame,
+    title: '焚き火',
+    subtitle: 'Campfire',
+    tags: ['火を眺める', 'リフレッシュ'],
+    highlight: { label: 'MOOD', value: '心が安らぐ' },
+    description:
+      '焚き火を主にやることが好きです。/火を見ていると心が安らいでとっても良い気分になり、リフレッシュできます。',
   },
 ];
 

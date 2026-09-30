@@ -45,7 +45,13 @@
     }
   }
 
-  &:hover {
+  a {
+    display: block;
+  }
+
+  // キーボード操作でも同じ状態が見えるように focus-within を hover と揃える
+  &:hover,
+  &:focus-within {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
     border-color: var(--accent-soft);

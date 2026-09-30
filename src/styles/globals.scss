@@ -15,6 +15,10 @@
   --glass-bg: rgba(18, 18, 16, 0.72);
   --glass-border: rgba(255, 255, 255, 0.1);
 
+  // 背景の幾何学レイヤー。暗い地の方が線が沈むので少し強めに出す
+  --geo-grid: rgba(255, 255, 255, 0.05);
+  --geo-opacity: 0.7;
+
   // ダークでは影が沈むので少し深めに
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45), 0 8px 28px rgba(0, 0, 0, 0.35);
@@ -38,6 +42,10 @@
   /* ---- glass (header). ダークで背景が変わっても破綻しないようトークン化 ---- */
   --glass-bg: rgba(250, 250, 245, 0.72);
   --glass-border: rgba(51, 51, 51, 0.14);
+
+  /* ---- 背景の幾何学レイヤー（GeometricBackground） ---- */
+  --geo-grid: rgba(51, 51, 51, 0.045);
+  --geo-opacity: 0.55;
 
   /* ---- radius ---- */
   --radius-sm: 8px;
@@ -114,10 +122,51 @@ body {
   flex-direction: column;
   word-wrap: break-word;
   container-type: inline-size;
+  /* 背景レイヤー(z-index:0)より必ず手前に本文を置く */
+  position: relative;
+  z-index: 1;
 }
 
 .layoutMain {
   flex: 1;
+  /* fixed ヘッダー(70px)に本文が潜り込まないための逃げ */
+  padding-block-start: $px-70;
+
+  /* スキップリンクの着地点。フォーカスリングは出さない */
+  &:focus {
+    outline: none;
+  }
+}
+
+/* ---- 画面右下の固定ドック（トップへ戻る / テーマ切替） ---- */
+.floatingDock {
+  position: fixed;
+  right: clamp(1rem, 0.5rem + 2vw, 2rem);
+  bottom: clamp(1rem, 0.5rem + 2vw, 2rem);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: $px-10;
+}
+
+/* ---- スキップリンク: フォーカスされたときだけ画面に出す ---- */
+.skipLink {
+  position: fixed;
+  top: $px-10;
+  left: $px-10;
+  z-index: 1200;
+  padding: $px-10 $px-16;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  border: $px-1 solid var(--border);
+  box-shadow: var(--shadow-md);
+  transform: translateY(calc(-100% - #{$px-20}));
+  transition: transform var(--dur) var(--ease);
+
+  &:focus-visible {
+    transform: translateY(0);
+  }
 }
 
 a {

@@ -1,9 +1,5 @@
 .header {
   height: $px-70;
-  padding-inline: $px-40;
-  display: flex;
-  gap: $px-12;
-  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -13,36 +9,71 @@
   -webkit-backdrop-filter: blur($px-14) saturate(180%);
   border-bottom: $px-1 solid var(--glass-border);
   z-index: 1000;
+  // 子要素の @container 判定はビューポート幅で行う
   container-type: inline-size;
+}
+
+// 左右いっぱいに広げ、両端ギリギリに寄せる（本文の 1200px 幅には合わせない）。
+// padding を .header ではなくこの子要素に置くのは、@container が自分自身の
+// container-type では効かないため（.header を container として参照させる）。
+.inner {
+  height: 100%;
+  padding-inline: $px-40;
+  display: flex;
+  gap: $px-12;
+  align-items: center;
 
   @container (max-width: #{$px-600}) {
     padding-inline: $px-20;
   }
+}
 
-  .icon {
-    width: $px-60;
-    height: $px-60;
-    border-radius: 50%;
-    object-fit: cover;
-    transition: transform var(--dur) var(--ease);
-    @container (max-width: #{$px-600}) {
-      width: $px-48;
-      height: $px-48;
-    }
-    &:hover {
-      transform: scale(1.06);
-    }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: $px-12;
+  min-width: 0;
+
+  &:hover .icon {
+    transform: scale(1.06);
   }
-  .name {
-    font-size: 1.6rem;
-    font-weight: $font-weight-semi-bold;
-    letter-spacing: -0.01em;
-    color: var(--text);
-    @container (max-width: #{$px-600}) {
-      font-size: 1.05rem;
-    }
+  &:hover .name {
+    color: var(--accent);
   }
-  .icons {
-    margin-left: auto;
+}
+
+.icon {
+  width: $px-52;
+  height: $px-52;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform var(--dur) var(--ease);
+
+  @container (max-width: #{$px-600}) {
+    width: $px-40;
+    height: $px-40;
   }
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: $font-weight-semi-bold;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color var(--dur) var(--ease);
+
+  @container (max-width: #{$px-600}) {
+    font-size: 1.05rem;
+  }
+}
+
+// GitHub / ハンバーガーの並び。箱の大きさは違うが align-items: center で水平は揃う
+.actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: $px-10;
 }

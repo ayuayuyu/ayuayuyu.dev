@@ -3,11 +3,8 @@ type AboutLayoutProps = {
 };
 
 const AboutLayout = ({ children }: AboutLayoutProps) => {
-  return (
-    <div>
-      <main>{children}</main>
-    </div>
-  );
+  // <main> は app/layout.tsx が持っているのでここでは重ねない
+  return <div>{children}</div>;
 };
 
 export default AboutLayout;

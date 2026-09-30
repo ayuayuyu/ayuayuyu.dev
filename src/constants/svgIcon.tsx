@@ -1140,6 +1140,61 @@ export function Zenn(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function Hamburger(props: SVGProps<SVGSVGElement>) {
+  return (
+    // viewBox = 絵の実バウンディングボックス（ストローク込み）。
+    //   x: 4.4〜19.6（レタスの stroke 1.2 が最外）/ y: 4.0〜17.7（バンズの stroke 1 が最外）
+    // こうしておけば preserveAspectRatio のデフォルト(xMidYMid meet)が
+    // CSS で与えた箱の中央に絵を収めてくれるので、位置合わせに手計算が要らない。
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={24}
+      height={24}
+      viewBox="4.4 4 15.2 13.7"
+      fill="none"
+      {...props}
+    >
+      {/* 上のバンズ */}
+      <path
+        d="M5 10C5 6.7 8.1 4.5 12 4.5C15.9 4.5 19 6.7 19 10H5Z"
+        fill="#F4C16E"
+        stroke="#8B5A2B"
+        strokeWidth={1}
+      />
+
+      {/* レタス */}
+      <path
+        d="M5 10.7C6 10.2 7 11.2 8 10.7C9 10.2 10 11.2 11 10.7C12 10.2 13 11.2 14 10.7C15 10.2 16 11.2 17 10.7C18 10.2 19 11.2 19 10.7"
+        stroke="#4CAF50"
+        strokeWidth={1.2}
+        fill="none"
+        strokeLinecap="round"
+      />
+
+      {/* パティ */}
+      <rect x={5.5} y={11.5} width={13} height={2} rx={1} fill="#6D3D1F" />
+
+      {/* 下のバンズ */}
+      <rect
+        x={5}
+        y={14.2}
+        width={14}
+        height={3}
+        rx={1.5}
+        fill="#F4C16E"
+        stroke="#8B5A2B"
+        strokeWidth={1}
+      />
+
+      {/* ゴマ */}
+      <circle cx={8} cy={7.2} r={0.3} fill="#FFF8DC" />
+      <circle cx={10.5} cy={6.3} r={0.3} fill="#FFF8DC" />
+      <circle cx={13} cy={7.1} r={0.3} fill="#FFF8DC" />
+      <circle cx={15.5} cy={6.5} r={0.3} fill="#FFF8DC" />
+    </svg>
+  );
+}
+
 // 線アイコン（趣味カード用）。色は currentColor で親から与える
 export function Tv(props: SVGProps<SVGSVGElement>) {
   return (
@@ -1180,6 +1235,25 @@ export function Gamepad(props: SVGProps<SVGSVGElement>) {
       <line x1="15" x2="15.01" y1="12" y2="12"></line>
       <line x1="18" x2="18.01" y1="10" y2="10"></line>
       <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path>
+    </svg>
+  );
+}
+
+export function Flame(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
     </svg>
   );
 }
