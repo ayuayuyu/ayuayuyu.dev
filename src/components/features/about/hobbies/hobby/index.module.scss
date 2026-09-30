@@ -1,34 +1,245 @@
+// カードごとに色を変えてポップに見せる。--hobby から派生色を作る
+.card:nth-child(3n + 1) {
+  --hobby: #ff5c8a;
+}
+.card:nth-child(3n + 2) {
+  --hobby: #7b5cff;
+}
+.card:nth-child(3n + 3) {
+  --hobby: #f5a524;
+}
+
+// 色帯の高さと、帯の下端にまたがるアイコンタイルの寸法
+$band: $px-112;
+$band-sm: $px-96;
+$icon: $px-64;
+$icon-sm: $px-52;
+$pad: $px-24;
+$pad-sm: $px-20;
+
+@keyframes hobby-pop {
+  0% {
+    opacity: 0;
+    transform: translateY($px-16) scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-$px-3) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .card {
-  width: $px-310;
-  border: $px-1 solid var(--border);
-  border-radius: var(--radius-md);
-  background-color: var(--surface);
-  box-shadow: var(--shadow-sm);
+  // 小さな文字用の色。text と混ぜるので light / dark どちらでもコントラストが保てる
+  --hobby-ink: color-mix(in srgb, var(--hobby) 45%, var(--text));
+  --hobby-tint: color-mix(in srgb, var(--hobby) 14%, var(--surface));
+
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-block: $px-15;
+  border: $px-2 solid color-mix(in srgb, var(--hobby) 30%, transparent);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-sm);
+  animation: hobby-pop 0.5s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
   transition:
     transform var(--dur) var(--ease),
-    box-shadow var(--dur) var(--ease);
+    box-shadow var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-$px-5) rotate(-1deg);
     box-shadow: var(--shadow-md);
+    border-color: var(--hobby);
   }
-  .title {
-    width: $px-300;
+}
+
+.band {
+  position: relative;
+  flex-shrink: 0;
+  height: $band;
+  overflow: hidden;
+  // 外枠(2px)の内側に収まるよう、上側の角丸を枠線ぶん小さくする
+  border-radius: calc(var(--radius-lg) - #{$px-2}) calc(var(--radius-lg) - #{$px-2})
+    0 0;
+  background-color: var(--hobby-tint);
+
+  // 帯の中の色ブロブ
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--hobby);
+    pointer-events: none;
+    transition: transform var(--dur) var(--ease);
+  }
+  &::before {
+    top: -$px-70;
+    right: -$px-48;
+    width: $px-200;
+    height: $px-200;
+    opacity: 0.18;
+  }
+  &::after {
+    bottom: -$px-40;
+    right: $px-112;
+    width: $px-80;
+    height: $px-80;
+    opacity: 0.1;
+  }
+  .card:hover &::before {
+    transform: scale(1.15);
+  }
+
+  @container (max-width: #{$px-400}) {
+    height: $band-sm;
+  }
+}
+
+.number {
+  position: absolute;
+  top: $px-18;
+  left: $pad;
+  font-size: $px-11;
+  font-weight: $font-weight-semi-bold;
+  letter-spacing: 0.16em;
+  color: var(--hobby-ink);
+
+  @container (max-width: #{$px-400}) {
+    top: $px-16;
+    left: $pad-sm;
+    font-size: $px-10;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: $band - $icon * 0.5;
+  left: $pad - $px-2;
+  width: $icon;
+  height: $icon;
+  display: grid;
+  place-items: center;
+  // surface 色の縁取りで帯と本文の境目から浮かせる
+  border: $px-3 solid var(--surface);
+  border-radius: $px-20;
+  background-color: var(--hobby);
+  box-shadow: 0 $px-5 $px-12 color-mix(in srgb, var(--hobby) 35%, transparent);
+  color: #fff;
+  transition: transform var(--dur) var(--ease);
+
+  svg {
+    width: $px-28;
+    height: $px-28;
+  }
+
+  .card:hover & {
+    transform: rotate(-8deg) scale(1.06);
+  }
+
+  @container (max-width: #{$px-400}) {
+    top: $band-sm - $icon-sm * 0.5;
+    left: $pad-sm - $px-2;
+    width: $icon-sm;
+    height: $icon-sm;
+    border-radius: $px-16;
+
+    svg {
+      width: $px-24;
+      height: $px-24;
+    }
+  }
+}
+
+.body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $px-14;
+  padding: ($icon * 0.5 + $px-14) $pad $pad;
+
+  @container (max-width: #{$px-400}) {
+    gap: $px-12;
+    padding: ($icon-sm * 0.5 + $px-14) $pad-sm $pad-sm;
+  }
+}
+
+.heading {
+  display: flex;
+  align-items: baseline;
+  gap: $px-10;
+}
+
+.title {
+  font-size: 1.75rem;
+  line-height: 1.3;
+  font-weight: $font-weight-semi-bold;
+  letter-spacing: -0.01em;
+  color: var(--text);
+
+  @container (max-width: #{$px-400}) {
     font-size: 1.5rem;
-    font-weight: $font-weight-medium;
-    text-align: center;
-    padding-bottom: $px-10;
-    border-bottom: $px-1 solid var(--border);
   }
-  .description {
-    width: $px-300;
-    text-align: center;
-    padding-top: $px-10;
-    color: var(--text-muted);
-    line-height: 1.6;
+}
+
+.subtitle {
+  font-size: $px-13;
+  color: var(--text-muted);
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $px-8;
+}
+
+.tag {
+  padding: $px-3 $px-12;
+  border-radius: var(--radius-pill);
+  background-color: var(--hobby-tint);
+  color: var(--hobby-ink);
+  font-size: $px-12;
+  line-height: $px-20;
+  font-weight: $font-weight-medium;
+}
+
+.highlight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $px-12;
+  padding: $px-12 $px-16;
+  border: $px-1 dashed color-mix(in srgb, var(--hobby) 50%, transparent);
+  border-radius: var(--radius-md);
+  background-color: var(--bg);
+}
+
+.highlightLabel {
+  font-size: $px-11;
+  font-weight: $font-weight-semi-bold;
+  letter-spacing: 0.14em;
+  color: var(--hobby-ink);
+}
+
+.highlightValue {
+  font-size: 1.25rem;
+  font-weight: $font-weight-semi-bold;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+
+  @container (max-width: #{$px-400}) {
+    font-size: 1.125rem;
   }
+}
+
+.description {
+  font-size: $px-14;
+  line-height: 1.85;
+  color: var(--text-muted);
 }
