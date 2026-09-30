@@ -45,6 +45,7 @@ export default function RootLayout({
     // data-theme は描画前スクリプトで意図的に付与するため suppressHydrationWarning。
     <html
       lang="ja"
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
       className={`${poppins.variable} ${geistMono.variable} ${tsukimiRounded.variable}`}
     >

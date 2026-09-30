@@ -1,3 +1,12 @@
 .container {
-  @include cards-grid;
+  max-width: $px-750;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($px-300, 1fr));
+  gap: $px-24;
+
+  @container (max-width: #{$px-400}) {
+    grid-template-columns: 1fr;
+    gap: $px-20;
+  }
 }

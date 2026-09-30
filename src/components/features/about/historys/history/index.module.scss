@@ -1,90 +1,324 @@
-.subContainer {
-  gap: $px-10;
-  display: flex;
-  padding: 5%;
-  justify-content: center;
-  align-items: center;
-  .history {
+// 列幅は historys/index.module.scss と揃える。レールは node 列の中央を通る
+$date-col: $px-96;
+$node-col: $px-32;
+$node-col-sm: $px-28;
+$body-gap: $px-16;
+
+// カード（milestone）の寸法。ノードと日付はカード見出し 1 行目の中心に揃える
+$card-pad-y: $px-16;
+$card-pad-x: $px-20;
+$title-lh: $px-28;
+$milestone-center: $px-1 + $card-pad-y + $title-lh * 0.5;
+
+// 行（event）はタイトル 1 行目の中心に揃える
+$event-title-lh: $px-22;
+$event-center: $event-title-lh * 0.5;
+
+// 狭幅では日付が本文の上に来るので、ノードは日付行の中心に揃える
+$date-lh-sm: $px-18;
+$date-center-sm: $date-lh-sm * 0.5;
+$row-gap-sm: $px-3;
+
+$node: $px-14;
+$node-sm: $px-12;
+$node-event: $px-10;
+$node-current: $px-16;
+$node-current-sm: $px-14;
+
+@keyframes history-in {
+  from {
+    opacity: 0;
+    transform: translateY($px-12);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.item {
+  // 絶対配置のレール（.timeline::before）より前面に出す
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: $date-col $node-col minmax(0, 1fr);
+  grid-template-areas: 'date node body';
+  align-items: start;
+  animation: history-in 0.5s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+
+  @container (max-width: #{$px-500}) {
+    grid-template-columns: $node-col-sm minmax(0, 1fr);
+    grid-template-areas:
+      'node date'
+      'node body';
+    column-gap: $px-12;
+    row-gap: $row-gap-sm;
+  }
+}
+
+/* ---- 日付 ---- */
+
+.date {
+  grid-area: date;
+  padding-top: $milestone-center - $px-12;
+
+  time {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    .point {
-      width: $px-52;
-      height: $px-52;
-      border: $px-3 solid var(--accent);
-      background-color: var(--bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      font-size: 1rem;
-      font-weight: $font-weight-medium;
-      color: var(--accent);
-      box-shadow: var(--shadow-sm);
-      @container (max-width: #{$px-400}) {
-        width: $px-40;
-        height: $px-40;
-        font-size: $px-13;
-      }
-    }
-    .line {
-      height: $px-300;
-      width: $px-5;
-      background-color: var(--accent);
-      position: absolute;
-      z-index: -1;
-      @container (max-width: #{$px-400}) {
-        width: $px-3;
-        height: $px-200;
-      }
+    flex-direction: column;
+    align-items: flex-end;
+    gap: $px-2;
+  }
+
+  .year {
+    font-size: $px-16;
+    line-height: $px-24;
+    font-weight: $font-weight-medium;
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+  }
+
+  .wareki {
+    font-size: $px-12;
+    line-height: $px-16;
+    color: var(--text-muted);
+  }
+
+  .item[data-kind='event'] & {
+    padding-top: $event-center - $px-10;
+
+    .year {
+      font-size: $px-14;
+      line-height: $px-20;
+      color: var(--text-muted);
     }
   }
-  .historyItem {
+
+  .item[data-current] & .year {
+    color: var(--accent-strong);
+  }
+
+  @container (max-width: #{$px-500}) {
+    // 狭幅では本文の上に「2004.07 · H16.7」と横並びにする
+    &,
+    .item[data-kind='event'] & {
+      padding-top: 0;
+    }
+
+    time {
+      flex-direction: row;
+      align-items: baseline;
+      gap: $px-5;
+    }
+
+    .year,
+    .item[data-kind='event'] & .year {
+      font-size: $px-12;
+      line-height: $date-lh-sm;
+    }
+
+    .item[data-kind='milestone'] & .year {
+      color: var(--accent-strong);
+    }
+
+    .wareki {
+      font-size: $px-11;
+      line-height: $date-lh-sm;
+
+      &::before {
+        content: '·';
+        margin-right: $px-5;
+      }
+    }
+
+    &:empty {
+      display: none;
+    }
+  }
+}
+
+/* ---- レール上のノード ---- */
+
+.node {
+  grid-area: node;
+  justify-self: center;
+  width: $node;
+  height: $node;
+  margin-top: $milestone-center - $node * 0.5;
+  border: $px-3 solid var(--accent);
+  border-radius: var(--radius-pill);
+  background-color: var(--surface);
+  // bg 色のリングでレールを切り、線上のビーズに見せる
+  box-shadow: 0 0 0 $px-3 var(--bg);
+
+  .item[data-kind='event'] & {
+    width: $node-event;
+    height: $node-event;
+    margin-top: $event-center - $node-event * 0.5;
+    border-width: $px-2;
+    background-color: var(--bg);
+  }
+
+  .item[data-current] & {
+    width: $node-current;
+    height: $node-current;
+    margin-top: $milestone-center - $node-current * 0.5;
+    border: 0;
+    background-color: var(--accent);
+    box-shadow:
+      0 0 0 $px-5 color-mix(in srgb, var(--accent) 18%, transparent),
+      0 0 0 $px-10 var(--bg);
+  }
+
+  @container (max-width: #{$px-500}) {
+    width: $node-sm;
+    height: $node-sm;
+    margin-top: $date-center-sm - $node-sm * 0.5;
+
+    .item[data-kind='event'] & {
+      margin-top: $date-center-sm - $node-event * 0.5;
+    }
+
+    // 日付を省略した行はタイトルの中心に合わせる。
+    // 日付セルが消えても空の 1 行目との row-gap は残るので、その分も足す
+    .date:empty + & {
+      margin-top: $row-gap-sm + $event-center - $node-event * 0.5;
+    }
+
+    .item[data-current] & {
+      width: $node-current-sm;
+      height: $node-current-sm;
+      margin-top: $date-center-sm - $node-current-sm * 0.5;
+    }
+  }
+}
+
+/* ---- 本文（milestone はカード、event は枠なしの行） ---- */
+
+.body {
+  grid-area: body;
+  min-width: 0;
+  margin-left: $body-gap;
+
+  .item[data-kind='milestone'] & {
+    padding: $card-pad-y $card-pad-x ($card-pad-y + $px-2);
     border: $px-1 solid var(--border);
     border-radius: var(--radius-md);
     background-color: var(--surface);
     box-shadow: var(--shadow-sm);
-    width: $px-350;
-    height: $px-175;
-    overflow: hidden;
-    padding-left: $px-20;
-    padding-right: $px-20;
     transition:
       transform var(--dur) var(--ease),
       box-shadow var(--dur) var(--ease);
+
     &:hover {
-      transform: translateY(-4px);
+      transform: translateY(-$px-3);
       box-shadow: var(--shadow-md);
     }
-    @container (max-width: #{$px-400}) {
-      width: $px-225;
-      height: $px-150;
+  }
+
+  // カード内の本文と左端をそろえる
+  .item[data-kind='event'] & {
+    padding-left: $card-pad-x;
+  }
+
+  .item[data-current] & {
+    border: $px-1_5 solid var(--accent);
+    background-color: color-mix(in srgb, var(--accent) 5%, var(--surface));
+    box-shadow: 0 $px-5 $px-20 color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+
+  @container (max-width: #{$px-500}) {
+    margin-left: 0;
+
+    .item[data-kind='milestone'] & {
+      padding: $px-14 $px-16 $px-16;
     }
-    .subTitle {
-      text-align: left;
-      font-size: 1.5rem;
-      font-weight: $font-weight-medium;
-      padding-top: $px-10;
-      margin: 0;
-      @container (max-width: #{$px-400}) {
-        font-size: $px-16;
-        padding-top: $px-5;
-      }
+
+    .item[data-kind='event'] & {
+      padding-left: $px-16;
     }
-    .navLink {
-      text-decoration: none;
-      color: var(--accent);
-    }
-    .description {
-      padding-top: $px-10;
-      white-space: pre-wrap;
-      line-height: 1.6;
-      color: var(--text-muted);
-      @container (max-width: #{$px-400}) {
-        font-size: $px-13;
-        padding-top: $px-5;
-      }
-    }
+  }
+}
+
+.heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: $px-10;
+  row-gap: $px-3;
+}
+
+.subTitle {
+  font-size: 1.125rem;
+  line-height: $title-lh;
+  font-weight: $font-weight-semi-bold;
+  letter-spacing: -0.01em;
+  color: var(--text);
+
+  .item[data-kind='event'] & {
+    font-size: $px-15;
+    line-height: $event-title-lh;
+  }
+
+  @container (max-width: #{$px-500}) {
+    font-size: $px-16;
+    line-height: $px-24;
+  }
+}
+
+.nowBadge {
+  padding: 0 $px-8;
+  border-radius: var(--radius-pill);
+  background-color: var(--accent-strong);
+  color: var(--bg);
+  font-size: $px-11;
+  line-height: $px-20;
+  font-weight: $font-weight-semi-bold;
+  letter-spacing: 0.1em;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  padding: $px-2 $px-10;
+  border-radius: var(--radius-pill);
+  background-color: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: $px-12;
+  line-height: $px-16;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+  transition:
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+
+  &::after {
+    content: '↗';
+    margin-left: $px-3;
+    font-size: 0.9em;
+  }
+
+  &:hover {
+    background-color: var(--accent);
+    color: var(--bg);
+  }
+}
+
+.description {
+  padding-top: $px-5;
+  white-space: pre-wrap;
+  font-size: $px-14;
+  line-height: 1.8;
+  color: var(--text-muted);
+
+  .item[data-kind='event'] & {
+    padding-top: $px-3;
+    font-size: $px-13_5;
+    line-height: $px-22;
+  }
+
+  @container (max-width: #{$px-500}) {
+    font-size: $px-13;
+    line-height: 1.7;
   }
 }

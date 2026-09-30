@@ -86,3 +86,41 @@
 - ヘッダー内の要素が本文と左右で揃っているか（`padding-inline: 8%` に統一）
 - 最初の見出しの上の余白（ヘッダー 70px + `.title` の `margin-top: 10%`）
 - 背景の濃さ（`--geo-opacity` / `--geo-grid` で調整可能）
+
+---
+
+# About: History / Hobbies リデザイン（2026-08-15〜）
+
+> マージ時に ignore 済みのローカル版が上書きされたため、会話ログに残っていた後半のみ復元。前半のチェックリストは消失。
+
+- [x] 章ごとに `<section>` + 番号バッジ、レールは `.timeline::before` 1本（末尾はフェードして「継続中」を表現）
+- [x] milestone = カード / event = 枠なしの行（テキスト位置はカード本文に揃える）/ current = NOW バッジ + アクセント枠
+- [x] 直前と同じ年月の項目は日付を省略
+- [x] 500px 以下のコンテナでは grid-template-areas で日付をノード右・本文の上へ移動
+- [x] 見出し `Historys` → `History`、イラストレーション部の説明からタイトルと重複する 1 行目を削除
+
+## Hobbies（A2 / A3）
+- [x] `constants/hobbys.ts` に icon(SVG) / subtitle / tags / highlight を追加（emoji は廃止）
+- [x] `constants/svgIcon.tsx` に線アイコン `Tv` / `Gamepad` を追加
+- [x] カード: 色帯 + はみ出すアイコンタイル + タグ + ハイライト（dl）+ 本文。色は `--hobby` から color-mix で派生（light / dark 両対応）
+- [x] hover: 傾き + 浮き + 枠色、アイコンが回転
+
+## 検証
+- [x] `npx tsc --noEmit` / `npm run lint` / `npm run build`
+- [x] ヘッドレス Chrome で light / dark × 1280 / 390 を確認（390 は CDP の setDeviceMetricsOverride）
+
+## Review（要点）
+- ノードと日付の縦位置は「1 行目の中心」を Sass 変数で計算して揃えている（`$milestone-center` など）。カードの padding や line-height を変えるときはこの変数も一緒に変える
+- 狭幅で日付を省略した行は、日付セルが消えても空の 1 行目との row-gap が残るので、ノードの margin-top にその分を足している
+- 未対応: `--text-muted`（light: #7d7d7d）は白地で 4.1:1 と AA(4.5:1) に少し足りない
+
+---
+
+# 2026-09-30 History: 会社 → インターンシップ（サマー / 長期）
+
+- [x] `layout.tsx` の `<html>` に `data-scroll-behavior="smooth"`（Next.js 16 の警告対応）
+- [x] 章 `copanny`(会社) → `internship`(インターンシップ)。章に `groups` を持たせ、項目は `group` で振り分け
+- [x] サマー: Safie アイデアソン / DMM Sprint_GO / フラー（サーバーサイド）/ SmartHR / Media Do、長期: 燈
+- [x] リンクをユーザー指定の記事・募集ページに差し替え（Media Do はリンクなし）
+- [x] グループ見出しはレール上のひし形 + 見出し（h4）、配下の項目タイトルは h5
+- [x] PR #4 のコンフリクト解消: svgIcon は Hamburger と Tv/Gamepad を両方残し Flame を追加、hobbys は日本語タイトル + 英語サブタイトル、焚き火カードを新フォーマットに

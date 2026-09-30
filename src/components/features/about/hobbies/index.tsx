@@ -8,10 +8,15 @@ const Hobbies = () => {
     <div>
       <TitleLayout>Hobbies</TitleLayout>
       <div className={styles.container}>
-        {HOBBIES.map((hobby) => (
+        {HOBBIES.map((hobby, index) => (
           <HobbyCard
             key={hobby.id}
+            index={index}
+            icon={hobby.icon}
             title={hobby.title}
+            subtitle={hobby.subtitle}
+            tags={hobby.tags}
+            highlight={hobby.highlight}
             description={hobby.description}
           />
         ))}
